@@ -28,11 +28,11 @@ ALTER TABLE public.hrds_train_features
 COMMENT ON TABLE public.hrds_train_features
     IS 'This table is for training and testing the model';
 
--- Table: public.hrds_test_labels
+-- Table: public.hrds_test_features
 
--- DROP TABLE public.hrds_test_labels;
+-- DROP TABLE public.hrds_test_features;
 
-CREATE TABLE public.hrds_test_labels
+CREATE TABLE public.hrds_test_features
 (
     enrollee_id integer NOT NULL,
     city character varying(30)[] COLLATE pg_catalog."default",
@@ -52,10 +52,10 @@ CREATE TABLE public.hrds_test_labels
 
 TABLESPACE pg_default;
 
-ALTER TABLE public.hrds_test_labels
+ALTER TABLE public.hrds_test_features
     OWNER to postgres;
 
-COMMENT ON TABLE public.hrds_test_labels
+COMMENT ON TABLE public.hrds_test_features
     IS 'This table is for creating predictions with the model';
 
 -- Table: public.hrds_train_labels
