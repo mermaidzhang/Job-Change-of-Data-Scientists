@@ -5,7 +5,7 @@
 CREATE TABLE public.hrds_train_features
 (
     enrollee_id integer NOT NULL,
-    city character varying(30)[] COLLATE pg_catalog."default",
+    city character varying(30) COLLATE pg_catalog."default",
     city_development_index numeric,
     gender character varying(10) COLLATE pg_catalog."default",
     relevent_experience character varying(30) COLLATE pg_catalog."default",
@@ -17,7 +17,7 @@ CREATE TABLE public.hrds_train_features
     company_type character varying(30) COLLATE pg_catalog."default",
     last_new_job character varying(30) COLLATE pg_catalog."default",
     training_hours integer,
-    CONSTRAINT hrds_train_features_pkey PRIMARY KEY (enrollee_id)
+    CONSTRAINT hrds_train_labels_pkey PRIMARY KEY (enrollee_id)
 )
 
 TABLESPACE pg_default;
@@ -26,7 +26,7 @@ ALTER TABLE public.hrds_train_features
     OWNER to postgres;
 
 COMMENT ON TABLE public.hrds_train_features
-    IS 'This table is for training and testing the model';
+    IS 'This table is for training the model';
 
 -- Table: public.hrds_test_features
 
@@ -35,7 +35,7 @@ COMMENT ON TABLE public.hrds_train_features
 CREATE TABLE public.hrds_test_features
 (
     enrollee_id integer NOT NULL,
-    city character varying(30)[] COLLATE pg_catalog."default",
+    city character varying(30) COLLATE pg_catalog."default",
     city_development_index numeric,
     gender character varying(10) COLLATE pg_catalog."default",
     relevent_experience character varying(30) COLLATE pg_catalog."default",
