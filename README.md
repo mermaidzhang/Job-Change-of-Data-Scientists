@@ -31,6 +31,7 @@ The dataset is divided into train and test with same features with the exclusion
 |training_hours|training hours completed|
 |target|0 – Not looking for job change, 1 – Looking for a job change|
 
+<<<<<<< HEAD
 ## data structure
 We created the below database structure for the above dataset<br>
 Scripts for generating [database](createDatabase.sql) and [tables](createTables.sql)
@@ -50,6 +51,25 @@ SciKitLearn is the ML library we'll be using to create a classifier. We will be 
 
 ## Dashboard
 We will be using HTML, CSS and Java Script to display our findings on a webpage. Plot libraries will be used for displaying graphs.
+=======
+
+### Machine Learning Model:
+
+**Classification vs Regression:**
+
+Classification is used to predict discrete outcomes. The outcome will be 0 or 1 , yes or no.
+However regression is used to predict continuous varaibles.
+In both classification and regression problems, a dataset is divided into features and target. 
+Features are the variables used to make a prediction. Target is the predicted outcome.
+
+
+**logistic Regression:**
+Predicts binary outcomes, meaning that there are only two possible outcomes.
+logistic regression might be to decide, based on personal information, whether an employee remain
+in company or not. Multiple variables, such as an applicant's gender and education,
+are assessed to arrive at one of two answers: to remain or to leave the company.
+So we are going to use logistic regression model as our first priority.
+>>>>>>> 1243096... Add machine learning info
 
 # Project Management
 ## Team roles - 1st segment
@@ -59,11 +79,18 @@ We will be using HTML, CSS and Java Script to display our findings on a webpage.
 * `X-Role`: Adanma Eleweke (Which tools to choose for the project)<br>
 
 ## Communications
+<<<<<<< HEAD
 We use the Breakout rooms zoom meetings for team meetings<br>
 For the daily communications we have created a slack channel.<br> 
 We also have exchanged emails for sharing repository.<br>
+=======
+For the daily communications we have created a slack channel. We also have exchanged emails for sharing repository.
+>>>>>>> 1243096... Add machine learning info
 
 # Summary
 The goal of the project is to find out which feature mostly affects the candidate decision of staying or leaving the company. 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1243096... Add machine learning info
