@@ -31,6 +31,26 @@ The dataset is divided into train and test with same features with the exclusion
 |training_hours|training hours completed|
 |target|0 – Not looking for job change, 1 – Looking for a job change|
 
+## data structure
+We created the below database structure for the above dataset<br>
+Scripts for generating [database](createDatabase.sql) and [tables](createTables.sql)
+
+## ERD
+<img src="ERD_hrds.jpeg" alt="HR data science database" height="42" width="42"> 
+
+# Technologies Used
+## Data Cleaning and Analysis
+Pandas will be used to clean the data and perform an exploratory analysis. Further analysis will be completed using Python.
+
+## Database Storage
+Postgres is the database we intend to use, and we will integrate Tableau to display the data.
+
+## Machine Learning
+SciKitLearn is the ML library we'll be using to create a classifier. We will be using the Logistic regression model. This decision was based on the type of data that we are working.
+
+## Dashboard
+We will be using HTML, CSS and Java Script to display our findings on a webpage. Plot libraries will be used for displaying graphs.
+
 # Project Management
 ## Team roles - 1st segment
 * `Square`: YI XIN ZHANG. (Set up Github ripository)<br>
@@ -39,7 +59,9 @@ The dataset is divided into train and test with same features with the exclusion
 * `X-Role`: Adanma Eleweke (Which tools to choose for the project)<br>
 
 ## Communications
-For the daily communications we have created a slack channel. We also have exchanged emails for sharing repository.
+We use the Breakout rooms zoom meetings for team meetings<br>
+For the daily communications we have created a slack channel.<br> 
+We also have exchanged emails for sharing repository.<br>
 
 # Summary
 The goal of the project is to find out which feature mostly affects the candidate decision of staying or leaving the company. 
