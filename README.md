@@ -36,7 +36,7 @@ We created the below database structure for the above dataset<br>
 Scripts for generating [database](createDatabase.sql) and [tables](createTables.sql)
 
 ## ERD
-<img src="ERD_hrds.jpeg" alt="HR data science database" height="42" width="42"> 
+<img src="ERD_hrds.jpeg" alt="HR data science database" height="100" width="100"> 
 
 # Technologies Used
 ## Data Cleaning and Analysis
@@ -59,9 +59,9 @@ We will be using HTML, CSS and Java Script to display our findings on a webpage.
 * `X-Role`: Adanma Eleweke (Which tools to choose for the project)<br>
 
 ## Communications
-We use the Breakout rooms zoom meetings for team meetings<br>
-For the daily communications we have created a slack channel.<br> 
-We also have exchanged emails for sharing repository.<br>
+- We use the Breakout rooms zoom meetings for team meetings<br>
+- For the daily communications we have created a slack channel.<br> 
+- We also have exchanged emails for sharing repository.<br>
 
 # Summary
 The goal of the project is to find out which feature mostly affects the candidate decision of staying or leaving the company. 
