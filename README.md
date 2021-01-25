@@ -38,6 +38,24 @@ Scripts for generating [database](createDatabase.sql) and [tables](createTables.
 ## ERD
 <img src="ERD_hrds.jpeg" alt="HR data science database" height="500" width="500"> 
 
+### Machine Learning Model:
+
+**Classification vs Regression:**
+
+Classification is used to predict discrete outcomes. The outcome will be 0 or 1 , yes or no.
+However regression is used to predict continuous varaibles.
+In both classification and regression problems, a dataset is divided into features and target. 
+Features are the variables used to make a prediction. Target is the predicted outcome.
+
+
+**Logistic Regression:**
+
+Predicts binary outcomes, meaning that there are only two possible outcomes.
+logistic regression might be to decide, based on personal information, whether an employee remain
+in company or not. Multiple variables, such as an applicant's gender and education,
+are assessed to arrive at one of two answers: to remain or to leave the company.
+So we are going to use logistic regression model as our first priority.
+
 # Technologies Used
 ## Data Cleaning and Analysis
 Pandas will be used to clean the data and perform an exploratory analysis. Further analysis will be completed using Python.
