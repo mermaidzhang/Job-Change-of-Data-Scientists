@@ -38,6 +38,8 @@ Scripts for generating [database](createDatabase.sql) and [tables](createTables.
 ## ERD
 <img src="ERD_hrds.jpeg" alt="HR data science database" height="500" width="500"> 
 
+## DATA EXPLORATION
+
 ### Machine Learning Model:
 
 **Classification vs Regression:**
