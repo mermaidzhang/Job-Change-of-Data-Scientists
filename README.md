@@ -1,7 +1,16 @@
 # Job-Change-of-Data-Scientists
 # Overview
-Every `Big data` company risks losing their technical resources following initial training as they move on to new jobs. It's very costly both in time and money for the companies to train people and then fill in the vacant technical positions. The objective of this project is to analyze the cause of turnover and come up with solutions to both predict it and prevent it from happening.
-This helps `Big Data` companies to reduce the cost and time as well as the quality of training or planning the courses and categorization of candidates.
+A data science company <b>`SaGe`</b> wants to hire new data scientists.<br> All the candidates must successfully pass the company’s in-house courses before being hired.<br> 
+Many candidates however, leave the company right after the training.<br>This negatively affects <b>`SaGe`</b> in terms of money, time and planning. 
+
+<b>`SaGe`</b> HR manager Adanma wants to know which candidates stay with the company after training. 
+
+This analysis helps to:<br>
+
+* Better select the candidates to enroll in the courses 
+* Reduce the cost and time and quality of training
+* Plan the courses and categorization of candidates
+
 
 # Dataset
 The [data set](https://www.kaggle.com/arashnic/hr-analytics-job-change-of-data-scientists) is taken from Kaggle<br>
