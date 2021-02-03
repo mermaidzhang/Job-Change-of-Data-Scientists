@@ -87,6 +87,12 @@ We will be using HTML, CSS and Java Script to display our findings on a webpage.
 * `Circle`: goes to Faramarz (Mock-up database)<br>
 * `X-Role`: Adanma Eleweke (Which tools to choose for the project)<br>
 
+## Team roles - 2nd segment
+* `Square`: YI XIN ZHANG. (Set up Github ripository)<br>
+* `Triangle`: Pegah. (Mock Machine learning)<br>
+* `Circle`: goes to Faramarz (Mock-up database)<br>
+* `X-Role`: Adanma Eleweke (Which tools to choose for the project)<br>
+
 ## Communications
 - We use the Breakout rooms zoom meetings for team meetings<br>
 - For the daily communications we have created a slack channel.<br> 
