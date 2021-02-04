@@ -44,12 +44,23 @@ Pandas will be used to clean the data and perform an exploratory analysis. Furth
 
 ## Database Storage
 Postgres is the database we intend to use, and we will integrate Tableau to display the data.
+## Data Prepration 
+### Exploritory Analysis
+The train data set contains 19158 rows and 13 columns. When we examine the data, there were a lot of NA Values in the data set, then we deciced to use random sampling to fill in the features that have more than 30% of null value, then replace the null values in other columns with Others / Unknown. For experience and training hours, we thought about bin the years of exeperience and hours to intervals, later we realize to achieve a better modelling, the data needs to be more diverse, so we kept those two columns as it is. 
 
 ## Machine Learning
 SciKitLearn is the ML library we'll be using to create a classifier. We will be using the Logistic regression model. This decision was based on the type of data that we are working.
+Coding: Pegha 
 
-## Dashboard
-We will be using HTML, CSS and Java Script to display our findings on a webpage. Plot libraries will be used for displaying graphs.
+
+The data set appears to be classification problem since the target is only binary, whether the person decides to stay or leave the company(0 and 1).To solve classification problems, we used 4 models we have used in the Machine learning* and we aim to pick the best model to predict our hypothesis. 
+1. logicstic regression:Logistic regression can be used for both regression and classification problems. Unlike regression which uses Least Squares, the model uses Maximum Likelihood to fit a sigmoid-curve on the target variable distribution.
+2. Naive Bayes:The model works well with a small training dataset, provided all the classes of the categorical predictor are present.
+3. Kneasest Neigbors (KNK):K-Nearest Neighbor (KNN) algorithm predicts based on the specified number (k) of the nearest neighboring data points. Here, the pre-processing of the data is significant as it impacts the distance measurements directly.It is also best to predict similarities patterns 
+4. random forest :Random Forest is also a popular method of classification than regression models, and it is a reliable ensemble of multiple Decision Trees. 
+
+Above models are suitable for our agenda and the we compared the models to see which one is the best model based on Accuracy, Precision and Recall metrics.
+
 
 # Project Management
 ## Team roles - 1st segment
@@ -67,3 +78,5 @@ We will be using HTML, CSS and Java Script to display our findings on a webpage.
 The goal of the project is to find out which feature mostly affects the candidate decision of staying or leaving the company. 
 
 
+References 
+*https://www.analyticsvidhya.com/blog/2020/11/popular-classification-models-for-machine-learning/
