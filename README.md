@@ -5,10 +5,10 @@
 |--------------|--------------------------------------------------------------------|
 |Presentation|[Presentation](https://docs.google.com/presentation/d/1rMu07ryJqEmf5g0MFu4u5RzuQps3Q993OG1wDrHQeZc/edit?usp=sharing)|
 |Presentation|[Storyboard](https://docs.google.com/presentation/d/1RR5zFTSV3vTKqNcTMg9wlMsJDusWPKWdcAHMnMZp9tc/edit?usp=sharing) |
-|Github|Outline of the project|
-|Github|Communication Protocols |
-|Machine Learning Model|Data Cleaning & Processing|
-|Machine Learning Model|Modelling|
+|Github|[Outline of the project](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#overview)|
+|Github|[Communication Protocols](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md##Communications)|
+|Machine Learning Model|[Data Cleaning & Processing](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#DataExploration)|
+|Machine Learning Model|[Machine Learning Model](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#MachineLearningModel)|
 
 
 
@@ -113,7 +113,7 @@ Since there are 241 unique values under the training hours categories, we binned
 |251 and up|9561|More than 251 Hrs|
 
 
-# Machine Learning Model:
+# Machine Learning Model
 
 ## Classification vs Regression
 
