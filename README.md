@@ -55,7 +55,7 @@ The dataset is divided into train and test with same features with the exclusion
 
 ## Data Structure
 We created the below database structure for the above dataset<br>
-Scripts for generating [database](createDatabase.sql) and [tables](createTables.sql)
+Scripts for generating [database](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/code/createDatabase.sql) and [tables](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/code/createTables.sql)
 
 ## ERD
 <img src="https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/Resources/ERD_hrds.jpeg" alt="HR data science database" height="500" width="500"> 
@@ -97,7 +97,7 @@ For experience have binned into three categories:Associtate, senior and Junior.
 The City Development Index is calculated according to the formula :[(Infrastructure index + Waste index + Education index + Health index +
 City Product index)/5](https://en.wikipedia.org/wiki/City_development_index)
 
-Since city development index has separate sub-indices for Infrastructure, Waste Management, Health, Education, and City Product, which which are also related to the population density in the city. Hence, we have binned into three categories:low density, medim density and high density. 
+Since city development index has separate sub-indices for Infrastructure, Waste Management, Health, Education, and City Product, which are also related to the population density in the city. Hence, we have binned into three categories:low density, medim density and high density. 
 |Binned Category|Counts|Years of Experience|
 |--------------|--------------------------------------------------------------------|--------------------------------------------------------------------|
 |low density| 3430|<0.63|
@@ -189,7 +189,7 @@ Top Five Features
 |city|0.2341|
 |company_size|0.1763|
 |last_new_job|0.1219|
-|city_development_index|0.0874|
+|city_index_encoded|0.0874|
 |company_type|0.0739|
 |experience_encoded|0.0612|
 
@@ -205,7 +205,8 @@ Postgres is the database we intend to use.
 SciKitLearn is the ML library we'll be using to create a classifier. We will be using the Logistic regression model. This decision was based on the type of data that we are working.
 
 ## Dashboard
-We will be using HTML, CSS and Java Script to display our findings on a webpage. Plot libraries will be used for displaying graphs.
+We will be using HTML, CSS and Java Script to display our findings on a webpage. Plot libraries will be used for displaying graphs.<br>
+We will use Bootstrap develop libraries for the presentation skin and Flask libraries for the backend python interaction.
 
 # Project Management
 ## Team roles - 1st segment
