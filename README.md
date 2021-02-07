@@ -133,7 +133,7 @@ Random Forest is  a popular method of classification than regression models, and
 Logistic regression can be used for both regression and classification problems. Unlike regression which uses Least Squares, the model uses Maximum Likelihood to fit a sigmoid-curve on the target variable distribution.Logistic regression might be able to decide, based on personal information, whether an employee remain
 in company or not. Multiple variables, such as an applicant's gender and education,are assessed to arrive at one of two answers: to remain or to leave the company.
 
-## Kneasest Neigbors (KNK)
+## Kneasest Neigbors (KNN)
 
 K-Nearest Neighbor (KNN) algorithm predicts based on the specified number (k) of the nearest neighboring data points. Here, the pre-processing of the data is significant as it impacts the distance measurements directly.It is also best to predict similarities patterns. Hence, if we were to decide the top features, KNN will be a good model to use. 
 
