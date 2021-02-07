@@ -6,7 +6,7 @@
 |Presentation|[Presentation](https://docs.google.com/presentation/d/1rMu07ryJqEmf5g0MFu4u5RzuQps3Q993OG1wDrHQeZc/edit?usp=sharing)|
 |Presentation|[Storyboard](https://docs.google.com/presentation/d/1RR5zFTSV3vTKqNcTMg9wlMsJDusWPKWdcAHMnMZp9tc/edit?usp=sharing) |
 |Github|[Outline of the project](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#overview)|
-|Github|[Communication Protocols](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md##communications)|
+|Github|[Communication Protocols](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#communications)|
 |Machine Learning Model|[Data Cleaning & Processing](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#data-exploration)|
 |Machine Learning Model|[Machine Learning Model](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#machine-learning-model)|
 
