@@ -1,4 +1,17 @@
 # Job-Change-of-Data-Scientists
+
+
+|Segment Two Deliverables|Description|
+|--------------|--------------------------------------------------------------------|
+|Presentation|[Presentation](https://docs.google.com/presentation/d/1rMu07ryJqEmf5g0MFu4u5RzuQps3Q993OG1wDrHQeZc/edit?usp=sharing)|
+|Presentation|[Storyboard](https://docs.google.com/presentation/d/1RR5zFTSV3vTKqNcTMg9wlMsJDusWPKWdcAHMnMZp9tc/edit?usp=sharing) |
+|Github|Outline of the project|
+|Github|Communication Protocols |
+|Machine Learning Model|Data Cleaning & Processing|
+|Machine Learning Model|Modelling|
+
+
+
 # Overview
 A data science company <b>`SaGe`</b> wants to hire new data scientists.<br> All the candidates must successfully pass the company’s in-house courses before being hired.<br> 
 Many candidates however, leave the company right after the training.<br>This negatively affects <b>`SaGe`</b> in terms of money, time and planning. 
@@ -47,10 +60,10 @@ Scripts for generating [database](createDatabase.sql) and [tables](createTables.
 ## ERD
 <img src="https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/Resources/ERD_hrds.jpeg" alt="HR data science database" height="500" width="500"> 
 
-## DATA EXPLORATION
 
 
-### Exploritory Analysis
+# DATA EXPLORATION
+## Exploritory Analysis
 The train data set contains 19158 rows and 13 columns. When we examine the data, there were a lot of NA Values in the data set(see chart below),  we deciced to use  <b>`na_randomfill`</b>function to fill in the features that have more than 30% of null value, then replace the null values in other columns with Others / Unknown. 
 
 |features|missing_num percentage|
@@ -70,7 +83,7 @@ The train data set contains 19158 rows and 13 columns. When we examine the data,
 |city_development_index|0%|
 |city|0%|
 
-**Feature Binning**
+## Feature Binning
 
 To better achieve the results, we binned below features into different intervals. We also compared the ML results before bining and after binning the features. 
 
@@ -100,9 +113,9 @@ Since there are 241 unique values under the training hours categories, we binned
 |251 and up|9561|More than 251 Hrs|
 
 
-### Machine Learning Model:
+# Machine Learning Model:
 
-**Classification vs Regression:**
+## Classification vs Regression
 
 Classification is used to predict discrete outcomes. The outcome will be 0 or 1 , yes or no.
 However regression is used to predict continuous varaibles.
@@ -111,24 +124,23 @@ Features are the variables used to make a prediction. Target is the predicted ou
 
 The data set appears to be classification problem since the target is only binary, whether the person decides to stay or leave the company(0 and 1).To solve classification problems, we used [3 models](https://www.analyticsvidhya.com/blog/2020/11/popular-classification-models-for-machine-learning/) we have used in the Machine learning* and we aim to pick the best model to predict our hypothesis.
 
-**Random forest**
+## Random Forest
 
 Random Forest is  a popular method of classification than regression models, and it is a reliable ensemble of multiple Decision Trees.
 
-**Logistic Regression**
+## Logistic Regression
 
 Logistic regression can be used for both regression and classification problems. Unlike regression which uses Least Squares, the model uses Maximum Likelihood to fit a sigmoid-curve on the target variable distribution.Logistic regression might be able to decide, based on personal information, whether an employee remain
 in company or not. Multiple variables, such as an applicant's gender and education,are assessed to arrive at one of two answers: to remain or to leave the company.
 
-
-**Kneasest Neigbors (KNK)**
+## Kneasest Neigbors (KNK)
 
 K-Nearest Neighbor (KNN) algorithm predicts based on the specified number (k) of the nearest neighboring data points. Here, the pre-processing of the data is significant as it impacts the distance measurements directly.It is also best to predict similarities patterns. Hence, if we were to decide the top features, KNN will be a good model to use. 
 
 Above models are suitable for our agenda and the we compared the models to see which one is the best model based on Accuracy, Precision and Recall metrics.
 
 
-**Models Comparison Before Binning**
+## Models Comparison Before Binning
 
 We  used  <b>`pd.concat`</b> function to compare the models:
 Scores cross all models
@@ -149,7 +161,7 @@ Scores cross all models
 
 As you can tell from above, Random Forest is the best model with the highest accuracy score. And the top features were discovered using <b>`rf_model.feature_importances_`</b>functions. 
 
-**Models Comparison After Binning**
+## Models Comparison After Binning
 
 
 # Technologies Used
