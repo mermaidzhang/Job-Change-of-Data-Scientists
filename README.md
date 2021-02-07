@@ -45,7 +45,7 @@ We created the below database structure for the above dataset<br>
 Scripts for generating [database](createDatabase.sql) and [tables](createTables.sql)
 
 ## ERD
-<img src="ERD_hrds.jpeg" alt="HR data science database" height="500" width="500"> 
+<img src="https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/Resources/ERD_hrds.jpeg" alt="HR data science database" height="500" width="500"> 
 
 ## DATA EXPLORATION
 
