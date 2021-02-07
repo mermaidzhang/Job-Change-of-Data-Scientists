@@ -53,7 +53,7 @@ The dataset is divided into train and test with same features with the exclusion
 |training_hours|training hours completed|
 |target|0 – Not looking for job change, 1 – Looking for a job change|
 
-## data structure
+## Data Structure
 We created the below database structure for the above dataset<br>
 Scripts for generating [database](createDatabase.sql) and [tables](createTables.sql)
 
@@ -62,7 +62,7 @@ Scripts for generating [database](createDatabase.sql) and [tables](createTables.
 
 
 
-# DATA EXPLORATION
+# Data Exploration
 ## Exploritory Analysis
 The train data set contains 19158 rows and 13 columns. When we examine the data, there were a lot of NA Values in the data set(see chart below),  we deciced to use  <b>`na_randomfill`</b>function to fill in the features that have more than 30% of null value, then replace the null values in other columns with Others / Unknown. 
 
@@ -161,7 +161,37 @@ Scores cross all models
 
 As you can tell from above, Random Forest is the best model with the highest accuracy score. And the top features were discovered using <b>`rf_model.feature_importances_`</b>functions. 
 
+
+Top Five Features
+|Feature|Description|
+|--------------|--------------------------------------------------------------------|
+|training_hours|0.2367|
+|city_development_index|0.1621|
+|experience|0.1366|
+|city|0.1045|
+|company_size|0.1014|
+
 ## Models Comparison After Binning
+We used the binned training_hours,city_development_index, and experience, then redo the modelling using Random Forest. 
+Scores Using Binned Data 
+|score type|0|1|accuracy|macro avg|weighted avg|model|
+|--------------|--------------|--------------|--------------|--------------|--------------|--------------|
+|precision|0.0.800399|0.503836|0.751983|0.671710|0.652118|RandomForest|
+|recall|0.892102|0.329983|0.751983|0.611043|0.751983|RandomForest|
+|f1-score|0.843766|0.398785|0.751983|0.621276|0.732846|RandomForest|
+|support|3596.000000|1194.000000|0.762839|4790.00000|4790.000000|RandomForest|
+
+Then our top five features are:
+
+Top Five Features
+|Feature|Importance|
+|--------------|--------------------------------------------------------------------|
+|city|0.2341|
+|company_size|0.1763|
+|last_new_job|0.1219|
+|city_development_index|0.0874|
+|company_type|0.0739|
+|experience_encoded|0.0612|
 
 
 # Technologies Used
@@ -169,7 +199,7 @@ As you can tell from above, Random Forest is the best model with the highest acc
 Pandas will be used to clean the data and perform an exploratory analysis. Further analysis will be completed using Python.
 
 ## Database Storage
-Postgres is the database we intend to use, and we will integrate Tableau to display the data.
+Postgres is the database we intend to use.
 
 ## Machine Learning
 SciKitLearn is the ML library we'll be using to create a classifier. We will be using the Logistic regression model. This decision was based on the type of data that we are working.
@@ -195,6 +225,8 @@ We will be using HTML, CSS and Java Script to display our findings on a webpage.
 - We use the Breakout rooms zoom meetings for team meetings<br>
 - For the daily communications we have created a slack channel.<br> 
 - We also have exchanged emails for sharing repository.<br>
+- We Work collaboratively on Google Drive.<br>
+- We also pay attention to the commit notes when we try to locate any updates.<br>
 
 # Summary
 The goal of the project is to find out which feature mostly affects the candidate decision of staying or leaving the company. 
