@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <title>SaGe candidate retention analysis</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+    <link https://code.jquery.com/jquery-3.3.1.slim.min.js/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css/>
+    <link rel="stylesheet" href="static/css/style.css"/>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <script type="text/javascript">
+        window.alert = function(){};
+        var defaultCSS = document.getElementById('bootstrap-css');
+        function changeCSS(css){
+            if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />'); 
+            else $('head > link').filter(':first').replaceWith(defaultCSS); 
+        }
+        $( document ).ready(function() {
+          var iframe_height = parseInt($('html').height()); 
+          window.parent.postMessage( iframe_height, '/');
+        });
+    </script>
+
+   </head>
+  <body>
+    <div class="container py-5">
+        <!-- For demo purpose -->
+        <div class="row mb-5">
+          <div class="col-lg-8 text-white py-4 text-center mx-auto">
+            <h1 class="display-6">SaGe candidate retention analysis</h1>
+            <h3 class="display-8">Who is likely to stay?</h3>
+          </div>
+        </div>
+        <!-- End -->
+      
+      
+        <div class="p-5 bg-white rounded shadow mb-5">
+          <!-- Rounded tabs -->
+          <ul id="myTab" role="tablist" class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
+            <li class="nav-item flex-sm-fill">
+              <a id="first-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1-ctl" aria-selected="true" class="nav-link border-0 text-uppercase font-weight-bold active">Model analysis</a>
+            </li>
+            <li class="nav-item flex-sm-fill">
+              <a id="second-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2-ctl" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">Feature analysis</a>
+            </li>
+            <li class="nav-item flex-sm-fill">
+              <a id="third-tab" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3-ctl" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">Models compared</a>
+            </li>
+          </ul>
+          <div id="myTabContent" class="tab-content">
+            <div id="tab1" role="tabpanel" aria-labelledby="first-tab" class="tab-pane fade px-4 py-5  show active">
+              <p class="text-muted">tab1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="text-muted mb-0">tab1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div id="tab2" role="tabpanel" aria-labelledby="second-tab" class="tab-pane fade px-4 py-5">
+              <p class="text-muted">tab2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="text-muted mb-0">tab2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div id="tab3" role="tabpanel" aria-labelledby="third-tab" class="tab-pane fade px-4 py-5">
+              <p class="text-muted">tab3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="text-muted">tab3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+          <!-- End rounded tabs -->
+        </div>
+      </div>
+  </body>
+</html>
+
