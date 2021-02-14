@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>er-team ML dashboard</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/static/js/eventHandler.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="shortcut icon" href="/static/images/favicon.ico">
+</head>
+
+<body>
+  <div class="container py-5">
+    <!-- Header containder -->
+    <div class="row mb-5">
+      <div class="col-lg-8 text-white py-4 text-center mx-auto">
+        <h1 class="display-3">ER-team Dashboard</h1>
+        <h3 class="display-4">Who is likely to stay?</h3>
+        <p class="lead">By <a href="https://bootstrapious.com/snippets" class="text-white">
+            Faramarz, Pegah,Yixin, Adanma.</a>
+        </p>
+      </div>
+    </div>
+    <!-- End -->
+
+
+    <div class="p-5 bg-white rounded shadow mb-5">
+    <!-- Rounded tabs -->
+      <ul id="myTab" role="tablist"
+        class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
+        <li class="nav-item flex-sm-fill">
+          <a id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true"
+            class="nav-link border-0 text-uppercase font-weight-bold active">Model Analysis</a>
+        </li>
+        <li class="nav-item flex-sm-fill">
+          <a id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false"
+            class="nav-link border-0 text-uppercase font-weight-bold">Feature Analysis</a>
+        </li>
+        <li class="nav-item flex-sm-fill">
+          <a id="third-tab" data-toggle="tab" href="#third" role="tab" aria-controls="third" aria-selected="false"
+            class="nav-link border-0 text-uppercase font-weight-bold">Models Compared</a>
+        </li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div id="first" role="tabpanel" aria-labelledby="first-tab" class="tab-pane fade px-4 py-5 show active">
+          <div class="container py-5">
+		      <!-- first tab container -->
+            <div class="row">
+              <div class="col-3">
+
+                <div class="card">
+                  <h5 class="card-header">Select dataset and model</h5>
+                  <div class="card-body">
+
+                    <form>
+                      <div class="form-group">
+                        <label for="drop1">Select dataset</label>
+                        <p>
+
+                          <select id="drop1" onchange="drop1Handler(this.value)">
+                            <option value="choose">Choose...</option>
+                            <optgroup label="Datasets">
+                              <option value="train">Training</option>
+                              <option value="test">Test</option>
+                            </optgroup>
+                          </select>
+                        </p>
+
+
+                        <p>
+                          <label for="drop2">Select ML model</label>
+                          <select id="drop2" onchange="drop2Handler(this.value)">
+                            <option value="choose">Choose...</option>
+                            <optgroup label="Models">
+                              <option value="rf">Random Forest</option>
+                              <option value="lr">Logistic Regression</option>
+                              <option value="knn">KNN</option>
+                            </optgroup>
+                          </select>
+                        </p>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="col-4">
+                <div class="card">
+                  <h5 class="card-header">Feature counts</h5>
+                  <div class="card-body">
+
+
+                    <div id="chart1">
+                      <table class='table table-striped'>
+                        <thead>
+                          <th scope='col'>enrollee_id</th>
+                          <th scope='col'>city</th>
+                        </thead>
+                        <tbody>
+                          {% for item in train %}
+                          <tr>
+                            <th scope='row'>{{item.enrollee_id}}</th>
+                            <td>{{item.city}}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-5">
+
+                <div class="card">
+                  <h5 class="card-header">Predictions</h5>
+                  <div class="card-body">
+                    <div id="chart2">
+
+
+                      <!-- Java script to create a chart from data -->
+                      <script>
+                        data_received = {{ train | safe }}
+                        city_lables = data_received.map(d => d.city)
+                        training = data_received.map(d => d.training_hours)
+
+                        var data = [
+                          {
+                            x: city_lables,
+                            y: training,
+                            type: 'bar'
+                          }
+                        ];
+
+                        Plotly.newPlot('chart2', data);
+                      </script>
+
+
+                    </div>
+                  </div>
+
+                </div>
+
+
+              </div>
+              <div class="container py-5">
+
+                <!-- bottom Row -->
+                <div class="row">
+                  <div class="col-7">
+                    <div class="card">
+                      <h5 class="card-header">classification report</h5>
+                      <div class="card-body">
+                        <p> The classification table here</p>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="card">
+                      <h5 class="card-header">confusion metrics</h5>
+                      <div class="card-body">
+                        <p>confusion table here</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+                </div>
+				<!-- tab 1 functionality -->
+
+          </div>
+          <!-- first tab container END -->
+          <div id="second" role="tabpanel" aria-labelledby="second-tab" class="tab-pane fade px-4 py-5">
+            <div>
+              <p> test dataset {{ test }}</p>
+            </div>
+
+            <div id="displayTable">
+              <table class='table table-striped'>
+                <thead>
+                  <th scope='col'>enrollee_id</th>
+                  <th scope='col'>city</th>
+                  <th scope='col'>relevent_experience</th>
+                </thead>
+                <tbody>
+                  {% for item in train %}
+                  <tr>
+                    <th scope='row'>{{item.enrollee_id}}</th>
+                    <td>{{item.city}}</td>
+                    <td>{{item.relevent_experience}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- tab 2 functionality -->
+          
+		      <div id="third" role="tabpanel" aria-labelledby="third-tab" class="tab-pane fade px-4 py-5">
+
+            <div id="displayChart">
+              <!-- import the plotly library -->
+              <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+              <!-- Java script to create a chart from data -->
+              <script type="text/javascript">
+                data_received = {{ train | safe }}
+                city_lables = data_received.map(d => d.city)
+                training = data_received.map(d => d.training_hours)
+
+                var data = [
+                  {
+                    x: city_lables,
+                    y: training,
+                    type: 'bar'
+                  }
+                ];
+
+                Plotly.newPlot('displayChart', data);
+
+              </script>
+            </div>
+		  <!-- tab 3 functionality -->
+        </div>
+        <!-- first END -->
+      </div>
+
+      <!-- myTabContent END-->
+    </div>
+    <!-- p-5 bg-white rounded shadow mb-5 END-->
+  </div>
+  <!-- container py-5 END -->
+</body>
+
+</html>
