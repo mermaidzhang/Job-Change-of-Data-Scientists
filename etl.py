@@ -9,7 +9,6 @@ from db_connection import postgreSQLConnection
 
 from sklearn.preprocessing import LabelEncoder
 
-
 # read the tables
 hrds_train_features_df      = pd.read_sql("select * from \"hrds_train_features\"", postgreSQLConnection);
 hrds_train_labels_df      = pd.read_sql("select * from \"hrds_train_labels\"", postgreSQLConnection);
@@ -200,7 +199,36 @@ hrds_test_df["city_index_encoded"] = le.transform(hrds_test_df["city_index_bucke
 le.fit(hrds_test_df["experience_buckets"])
 hrds_test_df["experience_encoded"] = le.transform(hrds_test_df["experience_buckets"])
 
-hrds_train_df.head()
-hrds_test_df.head()
+# Function to return the confusion metrics and accuracy score
 
-postgreSQLConnection.close()
+def result_metrics(y_test, predicted, model):
+    from sklearn.metrics import confusion_matrix
+    from sklearn.metrics import accuracy_score
+    from sklearn.metrics import classification_report    
+    '''
+    y_test is the test data
+    predicted is the prediction
+    model is the model used for the prediction
+    '''
+    # Calculating the confusion matrix.
+    cm = confusion_matrix(y_test, predicted)
+
+    # Create a DataFrame from the confusion matrix.
+    cm_df = pd.DataFrame(
+        cm, index=["Actual 0", "Actual 1"], columns=["Predicted 0", "Predicted 1"])
+
+    cm_df['model']=model
+
+    # Calculating the accuracy score.
+    acc_score = accuracy_score(y_test, predicted)
+
+    # return results
+    accuracy_df = pd.DataFrame(classification_report(y_test, predicted,output_dict=True))
+    accuracy_df['model'] = model
+    return cm_df,accuracy_df
+#
+#Add the scores for other models and put in a tables
+# create two new tables in postgres
+# hrds_train_scores and hrds_test_scores
+
+#postgreSQLConnection.close()
