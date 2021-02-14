@@ -1,5 +1,6 @@
 .vscode/
 Ignore/
+test*
 db_connection.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
