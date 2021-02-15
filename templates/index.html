@@ -205,7 +205,70 @@
                 </tbody>
               </table>
             </div>
-          </div>
+
+            
+            <div class="row">
+              <div class="col-3">
+
+                <div class="card">
+                  <h5 class="card-header">Select dataset </h5>
+                  <div class="card-body">
+
+                    <form>
+                      <div class="form-group">
+                        <p>
+                          <label for="select">Select dataset</label>
+                           <select id="drop3">
+                           <option value="">Choose...</option>
+                           <optgroup label="Datasets">
+                           <option value="">Training</option>
+                           <option value="">Test</option>
+                           </optgroup>
+                           </select>
+                        </p>
+                      </div>
+                    </form>  
+                  </div>    
+                </div>
+              </div> 
+              <div class="col-7">
+                <div class="card">
+                  <h5 class="card-header">Pie chart</h5>
+                  <div class="card-body">
+
+
+                    <div id="chart8">
+                   
+                      <body>
+                        <div id='myDiv'>   
+                          <script>
+ 
+                          data_received = {{ train | safe }} 
+                         
+                          var data = [{
+                          values: [100,300],
+                          labels: ['0', '1'],
+                          type: 'pie'
+                           }];
+    
+                           var layout = {
+                              height: 300,
+                              width: 350
+                                 };
+    
+                           Plotly.newPlot('myDiv', data, layout); 
+                           
+                          </script>
+                        </div>
+                      </body>
+                      <!-- Java script to create a Pie from data -->
+                   
+                    </div>
+
+                  </div>
+                </div>
+              </div>   
+            </div>
           <!-- tab 2 functionality -->
           
 		      <div id="third" role="tabpanel" aria-labelledby="third-tab" class="tab-pane fade px-4 py-5">
