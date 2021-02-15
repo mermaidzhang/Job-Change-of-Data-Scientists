@@ -14,3 +14,4 @@ function drop2Handler(value){
     alert("drop2 selected: " + value)
   }
 }
+

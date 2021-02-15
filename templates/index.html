@@ -170,11 +170,11 @@
           <!-- first tab container END -->
           <div id="second" role="tabpanel" aria-labelledby="second-tab" class="tab-pane fade px-4 py-5">
             <div>
-              <p> display chart5</p>
-            </div>
+              <p> display chart6</p>
+            </div> 
 
             <div id="displayTable">
-              <p> display chart6 </p>
+              <p> display chart7 </p>
               
             </div>
 
@@ -190,7 +190,7 @@
                       <div class="form-group">
                         <p>
                           <label for="select">Select dataset</label>
-                           <select id="drop3">
+                          <select id="drop3" onchange="drop2Handler(this.value)">
                            <option value="">Choose...</option>
                            <optgroup label="Datasets">
                            <option value="">Training</option>
@@ -209,30 +209,29 @@
                   <div class="card-body">
 
 
-                    <div id="chart8">
-                   
-                      <body>
-                        <div id='myDiv'>   
-                          <script>
+                    <div id="chart5">
+        
+                        <script>
  
-                          data_received = {{ train | safe }} 
+                          data_received = {{ chart5 | safe }} 
                          
-                          var data = [{
-                          values: [100,300],
-                          labels: ['0', '1'],
+                           data = [
+                            {
+                          values: [14381,4777],
+                          labels: ['Likely to stay', 'Likely to leave'],
                           type: 'pie'
-                           }];
+                           }
+                          ];
     
                            var layout = {
-                              height: 300,
-                              width: 350
+                              height: 400,
+                              width: 500
                                  };
     
-                           Plotly.newPlot('myDiv', data, layout); 
+                           Plotly.newPlot('chart5', data, layout); 
                            
-                          </script>
-                        </div>
-                      </body>
+                        </script> 
+                    
                       <!-- Java script to create a Pie from data -->
                    
                     </div>
@@ -243,7 +242,7 @@
             </div>
           <!-- tab 2 functionality -->
           
-		      <div id="third" role="tabpanel" aria-labelledby="third-tab" class="tab-pane fade px-4 py-5">
+		    <div id="third" role="tabpanel" aria-labelledby="third-tab" class="tab-pane fade px-4 py-5">
 
             <div id="displayChart">
               <p> display chart9 </p>
