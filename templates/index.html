@@ -169,15 +169,6 @@
           </div>
           <!-- first tab container END -->
           <div id="second" role="tabpanel" aria-labelledby="second-tab" class="tab-pane fade px-4 py-5">
-            <div>
-              <p> display chart6</p>
-            </div> 
-
-            <div id="displayTable">
-              <p> display chart7 </p>
-              
-            </div>
-
             
             <div class="row">
               <div class="col-3">
@@ -203,6 +194,7 @@
                   </div>    
                 </div>
               </div> 
+              
               <div class="col-7">
                 <div class="card">
                   <h5 class="card-header">Frequency of target</h5>
@@ -235,28 +227,55 @@
                       <!-- Java script to create a Pie from data -->
                    
                     </div>
+                   
+        
 
                   </div>
                 </div>
               </div>   
             </div>
-          <!-- tab 2 functionality -->
-          
-		    <div id="third" role="tabpanel" aria-labelledby="third-tab" class="tab-pane fade px-4 py-5">
+            <div class="row"></div>
+             <div class="col-6">
+              <div class="card">
+                <h5 class="card-header">Important Features</h5>
+                <div class="card-body">
 
-            <div id="displayChart">
-              <p> display chart9 </p>
-            </div>
+                   <div>
+                      <p> display chart6</p>
+                   </div> 
+                </div>
+              </div>
+             </div> 
+             <div class="col-6">
+              <div class="card">
+                <h5 class="card-header">Important Features</h5>
+                <div class="card-body">
+
+
+                     <div id="displayTable">
+                        <p> display chart7 </p>
+              
+                     </div>
+                </div>
+              </div>
+             </div>
+          <!-- tab 2 functionality -->
+          </div>
+		        <div id="third" role="tabpanel" aria-labelledby="third-tab" class="tab-pane fade px-4 py-5">
+
+               <div id="displayChart">
+                 <p> display chart9 </p>
+               </div>
  <!--label for="select">Select dataset</label-->
-            <select id="drop1">
-              <option value="">Choose...</option>
-              <optgroup label="Datasets">
-                <option value="">Training</option>
-                <option value="">Test</option>
-              </optgroup>
-            </select>
-          </p>
-          <div id = "displayTable">
+                <select id="drop4">
+                  <option value="">Choose...</option>
+                  <optgroup label="Datasets">
+                     <option value="">Training</option>
+                     <option value="">Test</option>
+                  </optgroup>
+                </select>
+                 </p>
+               <div id = "displayTable">
             <table class='table table-striped'>
               <thead>
                 <th scope='col'>Score Type</th>
@@ -351,10 +370,10 @@
                 </tr>
               </tbody>
             </table>        
-          </div>
+          
         <!-- first END -->
       </div>
-
+    
       <!-- myTabContent END-->
     </div>
     <!-- p-5 bg-white rounded shadow mb-5 END-->
