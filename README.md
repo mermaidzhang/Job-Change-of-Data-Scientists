@@ -211,7 +211,7 @@ The purpose of the dashboard is to show the results of different ML models. <br>
 We will use Bootstrap develop libraries for the presentation skin and Flask libraries for the backend python interaction.
 
 There are three major tabs under our dashboard: Model Analysis, Feature Analysis & Models compared
-
+![](Resources/DashboardTemplate.PNG)
 1. Model Analysis
 Under Model analysis, there are two drop-menus:Select Dataset and Select Models, which allow us to observe the interactive results of difference models and datasets. 
 
@@ -249,6 +249,9 @@ In this tab, we will be able to switch between test and train to see the scroes 
 - We Work collaboratively on Google Drive.<br>
 - We also pay attention to the commit notes when we try to locate any updates.<br>
 - Zoom meetings over the weekends.<br>
+- Each memeber has one branch then later merged to the main.<br>
+
+
 
 # Summary
 The goal of the project is to find out which feature mostly affects the candidate decision of staying or leaving the company. 
