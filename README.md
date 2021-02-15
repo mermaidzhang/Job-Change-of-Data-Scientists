@@ -214,6 +214,7 @@ There are three major tabs under our dashboard: Model Analysis, Feature Analysis
 ![](Resources/DashboardTemplate.PNG)
 1. Model Analysis
 Under Model analysis, there are two drop-menus:Select Dataset and Select Models, which allow us to observe the interactive results of difference models and datasets. 
+![](Resources/Dashboard1.png)
 
 2. Feature Analysis
 In the feature analysis tab, there are the basic analysis of top features we have concluded using Random Forest Sampling as well as the frequency of the target. 
