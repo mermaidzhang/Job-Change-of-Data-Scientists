@@ -1,24 +1,14 @@
 # Job-Change-of-Data-Scientists
 
 
-|Segment Two Deliverables|Description|
-|--------------|--------------------------------------------------------------------|
-|Presentation|[Presentation](https://docs.google.com/presentation/d/1rMu07ryJqEmf5g0MFu4u5RzuQps3Q993OG1wDrHQeZc/edit?usp=sharing)|
-|Presentation|[Storyboard](https://docs.google.com/presentation/d/1RR5zFTSV3vTKqNcTMg9wlMsJDusWPKWdcAHMnMZp9tc/edit?usp=sharing) |
-|Github|[Outline of the project](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#overview)|
-|Github|[Communication Protocols](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#communications)|
-|Machine Learning Model|[Data Cleaning & Processing](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#data-exploration)|
-|Machine Learning Model|[Machine Learning Model](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#machine-learning-model)|
-
-
 |Segment Three Deliverables|Description|
 |--------------|--------------------------------------------------------------------|
-|Presentation|[Presentation](https://docs.google.com/presentation/d/1rMu07ryJqEmf5g0MFu4u5RzuQps3Q993OG1wDrHQeZc/edit?usp=sharing)|
-|Presentation|[Storyboard](https://docs.google.com/presentation/d/1RR5zFTSV3vTKqNcTMg9wlMsJDusWPKWdcAHMnMZp9tc/edit?usp=sharing) |
+|Presentation|[Presentation-UPDATED SINCE SEGMENT 2](https://docs.google.com/presentation/d/1rMu07ryJqEmf5g0MFu4u5RzuQps3Q993OG1wDrHQeZc/edit?usp=sharing)|
+|Presentation|[Storyboard- UPDATED SINCE SEGMENT 2](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#dashboard) |
 |Github|[Outline of the project](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#overview)|
-|Github|[Communication Protocols](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#communications)|
+|Github|[Communication Protocols - UPDATED SINCE SEGMENT 2](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#communications)|
 |Machine Learning Model|[Data Cleaning & Processing](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#data-exploration)|
-|Machine Learning Model|[Machine Learning Model](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#machine-learning-model)|
+|Machine Learning Model|[Machine Learning Model- Final Models - UPDATED SINCE SEGMENT 2](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#machine-learning-model)|
 
 # Overview
 A data science company <b>`SaGe`</b> wants to hire new data scientists.<br> All the candidates must successfully pass the company’s in-house courses before being hired.<br> 
@@ -202,6 +192,10 @@ Top Five Features
 |experience_encoded|0.0612|
 
 
+## Final model
+The binning really helps to build up the story, hence we decided to use the RF models after bining for our analysis. The top features are shown below 
+
+
 # Technologies Used
 ## Data Cleaning and Analysis
 Pandas will be used to clean the data and perform an exploratory analysis. Further analysis will be completed using Python.
@@ -217,15 +211,17 @@ The purpose of the dashboard is to show the results of different ML models. <br>
 We will use Bootstrap develop libraries for the presentation skin and Flask libraries for the backend python interaction.
 
 There are three major tabs under our dashboard: Model Analysis, Feature Analysis & Models compared
-
+![](Resources/DashboardTemplate.PNG)
 1. Model Analysis
 Under Model analysis, there are two drop-menus:Select Dataset and Select Models, which allow us to observe the interactive results of difference models and datasets. 
+![](Resources/Dashboard1.png)
 
 2. Feature Analysis
 In the feature analysis tab, there are the basic analysis of top features we have concluded using Random Forest Sampling as well as the frequency of the target. 
 
 3. Models Compared
 In this tab, we will be able to switch between test and train to see the scroes across different models. 
+![](Resources/Dashboard2.PNG)
 
 # Project Management
 ## Team roles - 1st segment
@@ -255,6 +251,9 @@ In this tab, we will be able to switch between test and train to see the scroes 
 - We Work collaboratively on Google Drive.<br>
 - We also pay attention to the commit notes when we try to locate any updates.<br>
 - Zoom meetings over the weekends.<br>
+- Each memeber has one branch then later merged to the main.<br>
+
+
 
 # Summary
 The goal of the project is to find out which feature mostly affects the candidate decision of staying or leaving the company. 
