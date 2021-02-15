@@ -8,7 +8,7 @@
 |Github|[Outline of the project](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#overview)|
 |Github|[Communication Protocols - UPDATED SINCE SEGMENT 2](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#communications)|
 |Machine Learning Model|[Data Cleaning & Processing](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#data-exploration)|
-|Machine Learning Model|[Machine Learning Model- UPDATED SINCE SEGMENT 2](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#machine-learning-model)|
+|Machine Learning Model|[Machine Learning Model- Final Models - UPDATED SINCE SEGMENT 2](https://github.com/mermaidzhang/Job-Change-of-Data-Scientists/blob/main/README.md#machine-learning-model)|
 
 # Overview
 A data science company <b>`SaGe`</b> wants to hire new data scientists.<br> All the candidates must successfully pass the company’s in-house courses before being hired.<br> 
