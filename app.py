@@ -65,6 +65,9 @@ def pilot():
     chart2 = np.unique(y,return_counts = True)[1]
     chart2 = pd.DataFrame(chart2)[0]
     
+    chart5 = np.unique(y,return_counts = True)[1]
+    chart5 = pd.DataFrame(chart2)[0]
+    
     # accuracy report
     chart4, chart3 = result_metrics(y, predicted, 'RandomForest')
     
@@ -75,10 +78,10 @@ def pilot():
 
     #jsonify the data frames
     chart2=json.loads(chart2.to_json(orient='records'))
-
+    chart5=json.loads(chart5.to_json(orient='records'))
 
     # render the webpage with the data passed
-    return render_template('index.html',chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4)
+    return render_template('index.html',chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4,chart5=chart5)
 
 if __name__ == '__main__':
     app.run(debug=True)
