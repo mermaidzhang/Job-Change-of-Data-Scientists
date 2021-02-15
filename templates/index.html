@@ -185,8 +185,111 @@
             <div id="displayChart">
               <p> display chart9 </p>
             </div>
-		  <!-- tab 3 functionality -->
-        </div>
+ <!--label for="select">Select dataset</label-->
+            <select id="drop1">
+              <option value="">Choose...</option>
+              <optgroup label="Datasets">
+                <option value="">Training</option>
+                <option value="">Test</option>
+              </optgroup>
+            </select>
+          </p>
+          <div id = "displayTable">
+            <table class='table table-striped'>
+              <thead>
+                <th scope='col'>Score Type</th>
+                <th scope='col'>0</th>
+                <th scope='col'>1</th>
+                <th scope='col'>accuracy</th>
+                <th scope='col'>macro avg</th>
+                <th scope='col'>weighted avg</th>
+                <th scope='col'>model</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>precision</td> 
+                  <td>0.805362</td>
+                  <td>0.538058</td>
+                  <td>0.762839</td> 
+                  <td>0.671710</td>
+                  <td>0.738732</td>
+                  <td>RandomForest</td>
+                </tr>
+                <tr>
+                  <td>recall</td> 
+                  <td>0.902113</td>
+                  <td>0.343384</td>
+                  <td>0.762839</td> 
+                  <td>0.622749</td>
+                  <td>0.762839</td>
+                  <td>RandomForest</td>
+                </tr>
+                <tr>
+                  <td>f1-score</td> 
+                  <td>0.850997</td>
+                  <td>0.419223</td>
+                  <td>0.762839</td> 
+                  <td>0.635110</td>
+                  <td>0.743369</td>
+                  <td>RandomForest</td>
+                </tr>
+                <tr>
+                  <td>precision</td> 
+                  <td>0.781983</td>
+                  <td>0.399033</td>
+                  <td>0.715866</td> 
+                  <td>0.590508</td>
+                  <td>0.686525</td>
+                  <td>KNN</td>
+                </tr>
+                <tr>
+                  <td>recall</td> 
+                  <td>0.861791</td>
+                  <td>0.276382</td>
+                  <td>0.715866</td> 
+                  <td>0.569086</td>
+                  <td>0.715866</td>
+                  <td>KNN</td>
+                </tr>
+                <tr>
+                  <td>f1-score</td> 
+                  <td>0.819950</td>
+                  <td>0.326571</td>
+                  <td>0.715866</td> 
+                  <td>0.573260</td>
+                  <td>0.696966</td>
+                  <td>KNN</td>
+                </tr>
+                <tr>
+                  <td>precision</td> 
+                  <td>0.836647</td>
+                  <td>0.395598</td>
+                  <td>0.673486</td> 
+                  <td>0.616122</td>
+                  <td>0.726707</td>
+                  <td>LogisticRegression</td>
+                </tr>
+                <tr>
+                  <td>recall</td> 
+                  <td>0.702169</td>
+                  <td>0.587102</td>
+                  <td>0.673486</td> 
+                  <td>0.644636</td>
+                  <td>0.673486</td>
+                  <td>LogisticRegression</td>
+                </tr>
+                <tr>
+                  <td>f1-score</td> 
+                  <td>0.763532</td>
+                  <td>0.472690</td>
+                  <td>0.673486</td> 
+                  <td>0.618111</td>
+                  <td>0.673486</td>
+                  <td>LogisticRegression</td>
+                </tr>
+              </tbody>
+            </table>        
+          </div>
         <!-- first END -->
       </div>
 
