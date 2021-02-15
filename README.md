@@ -221,6 +221,7 @@ In the feature analysis tab, there are the basic analysis of top features we hav
 
 3. Models Compared
 In this tab, we will be able to switch between test and train to see the scroes across different models. 
+![](Resources/Dashboard2.PNG)
 
 # Project Management
 ## Team roles - 1st segment
