@@ -13,12 +13,12 @@
   <script src="/static/js/eventHandler.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="/static/css/style.css">
   <link rel="shortcut icon" href="/static/images/favicon.ico">
 </head>
 
 <body>
-  <div class="container py-5">
+  <div class="container">
     <!-- Header containder -->
     <div class="row mb-5">
       <div class="col-lg-8 text-white py-4 text-center mx-auto">
@@ -60,12 +60,12 @@
                   <h5 class="card-header">Select dataset and model</h5>
                   <div class="card-body">
 
-                    <form>
+                    <form method="POST">
                       <div class="form-group">
                         <label for="drop1">Select dataset</label>
                         <p>
 
-                          <select id="drop1" onchange="drop1Handler(this.value)">
+                          <select id="drop1" onchange="this.form.submit(db=test&func=chart1")">
                             <option value="choose">Choose...</option>
                             <optgroup label="Datasets">
                               <option value="train">Training</option>
@@ -99,21 +99,8 @@
                   <div class="card-body">
 
 
-                    <div id="chart1">
-                      <table class='table table-striped'>
-                        <thead>
-                          <th scope='col'>enrollee_id</th>
-                          <th scope='col'>city</th>
-                        </thead>
-                        <tbody>
-                          {% for item in train %}
-                          <tr>
-                            <th scope='row'>{{item.enrollee_id}}</th>
-                            <td>{{item.city}}</td>
-                          </tr>
-                          {% endfor %}
-                        </tbody>
-                      </table>
+                    <div id="chart1">                      
+                      {{ chart1|safe }}
                     </div>
 
                   </div>
@@ -129,14 +116,12 @@
 
                       <!-- Java script to create a chart from data -->
                       <script>
-                        data_received = {{ train | safe }}
-                        city_lables = data_received.map(d => d.city)
-                        training = data_received.map(d => d.training_hours)
+                        data_received = {{ chart2 | safe }}
 
                         var data = [
                           {
-                            x: city_lables,
-                            y: training,
+                            x: ['Likely to stay','Likely to leave'],
+                            y: data_received,
                             type: 'bar'
                           }
                         ];
@@ -152,15 +137,15 @@
 
 
               </div>
-              <div class="container py-5">
+              <div class="container">
 
                 <!-- bottom Row -->
                 <div class="row">
                   <div class="col-7">
                     <div class="card">
                       <h5 class="card-header">classification report</h5>
-                      <div class="card-body">
-                        <p> The classification table here</p>
+                      <div class="card-body" id="chart3">
+                        {{ chart3|safe }}
 
                       </div>
                     </div>
@@ -168,8 +153,9 @@
                   <div class="col-5">
                     <div class="card">
                       <h5 class="card-header">confusion metrics</h5>
-                      <div class="card-body">
-                        <p>confusion table here</p>
+                      <div class="card-body" id="chart4">
+                        {{chart4 | safe}}
+  
                       </div>
                     </div>
                   </div>
@@ -184,26 +170,12 @@
           <!-- first tab container END -->
           <div id="second" role="tabpanel" aria-labelledby="second-tab" class="tab-pane fade px-4 py-5">
             <div>
-              <p> test dataset {{ test }}</p>
+              <p> display chart5</p>
             </div>
 
             <div id="displayTable">
-              <table class='table table-striped'>
-                <thead>
-                  <th scope='col'>enrollee_id</th>
-                  <th scope='col'>city</th>
-                  <th scope='col'>relevent_experience</th>
-                </thead>
-                <tbody>
-                  {% for item in train %}
-                  <tr>
-                    <th scope='row'>{{item.enrollee_id}}</th>
-                    <td>{{item.city}}</td>
-                    <td>{{item.relevent_experience}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
+              <p> display chart6 </p>
+              
             </div>
 
             
@@ -274,25 +246,7 @@
 		      <div id="third" role="tabpanel" aria-labelledby="third-tab" class="tab-pane fade px-4 py-5">
 
             <div id="displayChart">
-              <!-- import the plotly library -->
-              <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-              <!-- Java script to create a chart from data -->
-              <script type="text/javascript">
-                data_received = {{ train | safe }}
-                city_lables = data_received.map(d => d.city)
-                training = data_received.map(d => d.training_hours)
-
-                var data = [
-                  {
-                    x: city_lables,
-                    y: training,
-                    type: 'bar'
-                  }
-                ];
-
-                Plotly.newPlot('displayChart', data);
-
-              </script>
+              <p> display chart9 </p>
             </div>
 		  <!-- tab 3 functionality -->
         </div>

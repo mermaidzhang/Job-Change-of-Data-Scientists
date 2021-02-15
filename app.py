@@ -27,23 +27,58 @@ app = Flask(__name__)
 # define routes
 @app.route("/")
 def pilot():
-    # read from my database
+    # check if it's a POST
+
+
+    # dependencies
     from db_connection import postgreSQLConnection
-    #read all your data frames
-    train_df = pd.read_sql( \
-    "select enrollee_id,city,relevent_experience,training_hours from hrds_train_features limit 10", \
-    postgreSQLConnection);
-    test_df = pd.read_sql( \
-    "select enrollee_id,city,relevent_experience,training_hours from hrds_test_features limit 10", \
-    postgreSQLConnection);
-    #postgreSQLConnection.close()
+    import numpy as np
+    import pandas as pd
+    import pickle5 as pickle
+    import matplotlib.pyplot as plt
+
+
+    hrds_train_features = pd.read_sql("select * from \"hrds_train_features\"", postgreSQLConnection);
+
+    # import model and get predictions on the dataset
+    filename='finalized_model.sav'
+    from etl import hrds_train_df,result_metrics
+
+    # get the features
+    features = ['city','city_development_index','gender','relevent_experience','enrolled_university','education_level', \
+        'major_discipline','experience','company_size','company_type','last_new_job','training_hours']
+    chart1 = hrds_train_features.count()
+    chart1=chart1.to_frame()
+    chart1 = chart1.rename(columns={0:'count'})
+    chart1['Features']=chart1.index
+    chart1.set_index('Features',drop=True,inplace=True)
+    chart1=chart1.to_html()
+
+    # Run the model
+    df = hrds_train_df.drop(['training_buckets','city_index_buckets','experience_buckets','target'],axis=1)
+    filename = 'finalized_model.sav'
+    loaded_model = pickle.load(open(filename, 'rb'))
+    predicted = loaded_model.predict(df)
+
+    # save results
+    y = hrds_train_df['target']
+    chart2 = np.unique(y,return_counts = True)[1]
+    chart2 = pd.DataFrame(chart2)[0]
+    
+    # accuracy report
+    chart4, chart3 = result_metrics(y, predicted, 'RandomForest')
+    
+    chart3=chart3.to_html()
+
+
+    chart4 = chart4.to_html()
 
     #jsonify the data frames
-    train=json.loads(train_df.to_json(orient='records'))
-    test=json.loads(test_df.to_json(orient='records'))
+    chart2=json.loads(chart2.to_json(orient='records'))
+
 
     # render the webpage with the data passed
-    return render_template('index.html',test=test,train=train)
+    return render_template('index.html',chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4)
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=True)
