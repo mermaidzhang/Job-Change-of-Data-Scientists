@@ -66,27 +66,20 @@
                         <p>
 
                           <select id="drop1" name='dataset'>
-
-
                             <option value="train">Training</option>
                             <option value="test">Test</option>
-
                           </select>
                         </p>
-
-
+                        <h5 class="card-title">Current: {{sel1|safe}}</h5>
                         <p>
                           <label for="drop2">Select ML model</label>
-                          <select id="drop2" name='models'>
-
-
+                          <select id="drop2" name='model'>
                             <option value="rf">Random Forest</option>
                             <option value="lr">Logistic Regression</option>
                             <option value="knn">KNN</option>
-
                           </select>
                         </p>
-
+                        <h5 class="card-title">Current: {{sel2|safe}}</h5>
                         <p>
                           <input type="submit">
                         </p>
@@ -117,6 +110,7 @@
                 <div class="card">
                   <h5 class="card-header">Predictions</h5>
                   <div class="card-body">
+                    <p> {{ results | safe }} </p>
                     <div id="chart2">
 
 
@@ -131,11 +125,6 @@
                             type: 'bar'
                           }
                         ];
-                        var layout = {
-                          tickmode: "array",
-                          tickvals: [0, 1],
-                          ticktext: ['Likely to stay', 'Likely to leave']
-                        };
 
                         Plotly.newPlot('chart2', data);
                       </script>
@@ -149,18 +138,8 @@
 
               </div>
               <div class="container">
-
                 <!-- bottom Row -->
                 <div class="row">
-                  <div class="col-7">
-                    <div class="card">
-                      <h5 class="card-header">classification report</h5>
-                      <div class="card-body" id="chart3">
-                        {{ chart3|safe }}
-
-                      </div>
-                    </div>
-                  </div>
                   <div class="col-5">
                     <div class="card">
                       <h5 class="card-header">confusion metrics</h5>
@@ -171,8 +150,18 @@
                     </div>
                   </div>
                 </div>
-              </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card">
+                      <h5 class="card-header">classification report</h5>
+                      <div class="card-body" id="chart3">
+                        {{ chart3|safe }}
 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <!-- tab 1 functionality -->
@@ -185,23 +174,14 @@
               <div class="col-3">
 
                 <div class="card">
-                  <h5 class="card-header">Select dataset </h5>
+                  <h5 class="card-header">Selections:</h5>
                   <div class="card-body">
-
-                    <form action="" method="post">
-                      <div class="form-group">
-                        <label for="drop1">Select dataset</label>
-                        <p>
-
-                          <select id="drop3" name='dataset'>
-
-
-                            <option value="train">Training</option>
-                            <option value="test">Test</option>
-
-                          </select>
-                        </p>
-                      </div>
+                    </p>
+                    <h5 class="card-title">Dataset: {{sel1|safe}}</h5>
+                    <p>
+                    </p>
+                    <h5 class="card-title">Model: {{sel2|safe}}</h5>
+                    <p>
                   </div>
                 </div>
               </div>
@@ -220,8 +200,8 @@
 
                         data = [
                           {
-                            values: [14381, 4777],
-                            labels: ['Likely to stay', 'Likely to leave'],
+                            values: data_received[1],
+                            labels: data_received[0],
                             type: 'pie'
                           }
                         ];
@@ -279,22 +259,29 @@
         </div>
         <!-- tab 2 functionality -->
         <div id="third" role="tabpanel" aria-labelledby="third-tab" class="tab-pane fade px-4 py-5">
+          <div container>
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <h5 class="card-header">Scores compared</h5>
+                  <div class="card-body">
+                {{chart9|safe}}
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <h5 class="card-header">Confustion matrix compared</h5>
+                  <div class="card-body">
+                {{chart10|safe}}
+                </div>
+                </div>
+              </div>
+            </div>           
 
-          <div id="displayChart">
-            <p> display chart9 </p>
           </div>
-          <!--label for="select">Select dataset</label-->
-       
-          <div class="card-body" id="chart9">
-            {{chart9 | safe}}
-
-          </div>
-          <div class="card-body" id="chart10">
-            {{chart10 | safe}}
-            <!-- first END -->
-          </div>
-
-          <!-- myTabContent END-->
         </div>
         <!-- p-5 bg-white rounded shadow mb-5 END-->
       </div>
