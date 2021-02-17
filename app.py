@@ -39,9 +39,16 @@ def pilot():
 
 
     hrds_train_features = pd.read_sql("select * from \"hrds_train_features\"", postgreSQLConnection);
+    hrds_test_features = pd.read_sql("select * from \"hrds_test_features\"", postgreSQLConnection);
 
-    # import model and get predictions on the dataset
-    filename='finalized_model.sav'
+    all_models_accuracy = pd.read_sql("select * from \"all_models_accuracy\"", postgreSQLConnection);
+    all_models_cm = pd.read_sql("select * from \"all_models_cm\"", postgreSQLConnection);
+
+    # import models and get predictions on the dataset
+    rf_model='rf.sav'
+    lr_model='lr.sav'
+    knn_model='knn.sav'
+
     from etl import hrds_train_df,result_metrics
 
     # get the features
@@ -56,8 +63,7 @@ def pilot():
 
     # Run the model
     df = hrds_train_df.drop(['training_buckets','city_index_buckets','experience_buckets','target'],axis=1)
-    filename = 'finalized_model.sav'
-    loaded_model = pickle.load(open(filename, 'rb'))
+    loaded_model = pickle.load(open(rf_model, 'rb'))
     predicted = loaded_model.predict(df)
 
     # save results
@@ -77,8 +83,8 @@ def pilot():
     chart4 = chart4.to_html()
 
     #jsonify the data frames
-    chart2=json.loads(chart2.to_json(orient='records'))
-    chart5=json.loads(chart5.to_json(orient='records'))
+
+    chart2=json.dumps(chart2)
 
     # render the webpage with the data passed
     return render_template('index.html',chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4,chart5=chart5)
