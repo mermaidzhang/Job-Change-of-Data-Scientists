@@ -33,7 +33,7 @@
 
 
     <div class="p-5 bg-white rounded shadow mb-5">
-    <!-- Rounded tabs -->
+      <!-- Rounded tabs -->
       <ul id="myTab" role="tablist"
         class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
         <li class="nav-item flex-sm-fill">
@@ -52,7 +52,7 @@
       <div id="myTabContent" class="tab-content">
         <div id="first" role="tabpanel" aria-labelledby="first-tab" class="tab-pane fade px-4 py-5 show active">
           <div class="container py-5">
-		      <!-- first tab container -->
+            <!-- first tab container -->
             <div class="row">
               <div class="col-3">
 
@@ -66,11 +66,11 @@
                         <p>
 
                           <select id="drop1" name='dataset'>
-                            
-                            
-                              <option value="train">Training</option>
-                              <option value="test">Test</option>
-                            
+
+
+                            <option value="train">Training</option>
+                            <option value="test">Test</option>
+
                           </select>
                         </p>
 
@@ -78,19 +78,19 @@
                         <p>
                           <label for="drop2">Select ML model</label>
                           <select id="drop2" name='models'>
-                            
-                            
-                              <option value="rf">Random Forest</option>
-                              <option value="lr">Logistic Regression</option>
-                              <option value="knn">KNN</option>
-                            
+
+
+                            <option value="rf">Random Forest</option>
+                            <option value="lr">Logistic Regression</option>
+                            <option value="knn">KNN</option>
+
                           </select>
                         </p>
 
                         <p>
                           <input type="submit">
                         </p>
-                         
+
                       </div>
                     </form>
                   </div>
@@ -104,9 +104,9 @@
                   <div class="card-body">
 
 
-                    <div id="chart1">                      
-                     
-                      
+                    <div id="chart1">
+
+                      {{chart1|safe}}
                     </div>
 
                   </div>
@@ -132,9 +132,9 @@
                           }
                         ];
                         var layout = {
-                          tickmode:"array",
-                          tickvals:[0,1],
-                          ticktext:['Likely to stay','Likely to leave']                          
+                          tickmode: "array",
+                          tickvals: [0, 1],
+                          ticktext: ['Likely to stay', 'Likely to leave']
                         };
 
                         Plotly.newPlot('chart2', data);
@@ -166,7 +166,7 @@
                       <h5 class="card-header">confusion metrics</h5>
                       <div class="card-body" id="chart4">
                         {{chart4 | safe}}
-  
+
                       </div>
                     </div>
                   </div>
@@ -174,13 +174,13 @@
               </div>
 
             </div>
-                </div>
-				<!-- tab 1 functionality -->
-
           </div>
-          <!-- first tab container END -->
-          <div id="second" role="tabpanel" aria-labelledby="second-tab" class="tab-pane fade px-4 py-5">
-            
+          <!-- tab 1 functionality -->
+
+        </div>
+        <!-- first tab container END -->
+        <div id="second" role="tabpanel" aria-labelledby="second-tab" class="tab-pane fade px-4 py-5">
+          <div class="container py-5">
             <div class="row">
               <div class="col-3">
 
@@ -188,24 +188,24 @@
                   <h5 class="card-header">Select dataset </h5>
                   <div class="card-body">
 
-                    <form>
+                    <form action="" method="post">
                       <div class="form-group">
+                        <label for="drop1">Select dataset</label>
                         <p>
-                          <label for="select">Select dataset</label>
-                          <select id="drop3" onchange="drop2Handler(this.value)">
-                           <option value="">Choose...</option>
-                           <optgroup label="Datasets">
-                           <option value="">Training</option>
-                           <option value="">Test</option>
-                           </optgroup>
-                           </select>
+
+                          <select id="drop3" name='dataset'>
+
+
+                            <option value="train">Training</option>
+                            <option value="test">Test</option>
+
+                          </select>
                         </p>
                       </div>
-                    </form>  
-                  </div>    
+                  </div>
                 </div>
-              </div> 
-              
+              </div>
+
               <div class="col-7">
                 <div class="card">
                   <h5 class="card-header">Frequency of target</h5>
@@ -213,80 +213,86 @@
 
 
                     <div id="chart5">
-        
-                        <script>
- 
-                          data_received = {{ chart5 | safe }} 
-                         
-                           data = [
-                            {
-                          values: [14381,4777],
-                          labels: ['Likely to stay', 'Likely to leave'],
-                          type: 'pie'
-                           }
-                          ];
-    
-                           var layout = {
-                              height: 400,
-                              width: 500
-                                 };
-    
-                           Plotly.newPlot('chart5', data, layout); 
-                           
-                        </script> 
-                    
+
+                      <script>
+
+                        data_received = {{ chart5 | safe }}
+
+                        data = [
+                          {
+                            values: [14381, 4777],
+                            labels: ['Likely to stay', 'Likely to leave'],
+                            type: 'pie'
+                          }
+                        ];
+
+                        var layout = {
+                          height: 400,
+                          width: 500
+                        };
+
+                        Plotly.newPlot('chart5', data, layout);
+
+                      </script>
+
                       <!-- Java script to create a Pie from data -->
-                   
+
                     </div>
-                   
-        
+
+
 
                   </div>
                 </div>
-              </div>   
+              </div>
             </div>
-            <div class="row"></div>
-             <div class="col-6">
-              <div class="card">
-                <h5 class="card-header">Important Features</h5>
-                <div class="card-body">
-
-                   <div>
-                      <p> display chart6</p>
-                   </div> 
-                </div>
-              </div>
-             </div> 
-             <div class="col-6">
-              <div class="card">
-                <h5 class="card-header">Important Features</h5>
-                <div class="card-body">
-
-
-                     <div id="displayTable">
-                        <p> display chart7 </p>
-              
-                     </div>
-                </div>
-              </div>
-             </div>
-          <!-- tab 2 functionality -->
           </div>
-		        <div id="third" role="tabpanel" aria-labelledby="third-tab" class="tab-pane fade px-4 py-5">
+          <!-- First row -->
+          <div container>
+            <div class="row">
+              <div class="col-6">
+                <div class="card">
+                  <h5 class="card-header">Important Features</h5>
+                  <div class="card-body">
 
-               <div id="displayChart">
-                 <p> display chart9 </p>
-               </div>
- <!--label for="select">Select dataset</label-->
-                <select id="drop4">
-                  <option value="">Choose...</option>
-                  <optgroup label="Datasets">
-                     <option value="">Training</option>
-                     <option value="">Test</option>
-                  </optgroup>
-                </select>
-                 </p>
-               <div id = "displayTable">
+                    <div>
+                      <p> display chart6</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="card">
+                  <h5 class="card-header">Important Features</h5>
+                  <div class="card-body">
+
+
+                    <div id="displayTable">
+                      <p> display chart7 </p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- tab 2 functionality -->
+        <div id="third" role="tabpanel" aria-labelledby="third-tab" class="tab-pane fade px-4 py-5">
+
+          <div id="displayChart">
+            <p> display chart9 </p>
+          </div>
+          <!--label for="select">Select dataset</label-->
+          <select id="drop4">
+            <option value="">Choose...</option>
+            <optgroup label="Datasets">
+              <option value="">Training</option>
+              <option value="">Test</option>
+            </optgroup>
+          </select>
+          </p>
+          <div id="displayTable">
             <table class='table table-striped'>
               <thead>
                 <th scope='col'>Score Type</th>
@@ -299,97 +305,97 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>precision</td> 
+                  <td>precision</td>
                   <td>0.805362</td>
                   <td>0.538058</td>
-                  <td>0.762839</td> 
+                  <td>0.762839</td>
                   <td>0.671710</td>
                   <td>0.738732</td>
                   <td>RandomForest</td>
                 </tr>
                 <tr>
-                  <td>recall</td> 
+                  <td>recall</td>
                   <td>0.902113</td>
                   <td>0.343384</td>
-                  <td>0.762839</td> 
+                  <td>0.762839</td>
                   <td>0.622749</td>
                   <td>0.762839</td>
                   <td>RandomForest</td>
                 </tr>
                 <tr>
-                  <td>f1-score</td> 
+                  <td>f1-score</td>
                   <td>0.850997</td>
                   <td>0.419223</td>
-                  <td>0.762839</td> 
+                  <td>0.762839</td>
                   <td>0.635110</td>
                   <td>0.743369</td>
                   <td>RandomForest</td>
                 </tr>
                 <tr>
-                  <td>precision</td> 
+                  <td>precision</td>
                   <td>0.781983</td>
                   <td>0.399033</td>
-                  <td>0.715866</td> 
+                  <td>0.715866</td>
                   <td>0.590508</td>
                   <td>0.686525</td>
                   <td>KNN</td>
                 </tr>
                 <tr>
-                  <td>recall</td> 
+                  <td>recall</td>
                   <td>0.861791</td>
                   <td>0.276382</td>
-                  <td>0.715866</td> 
+                  <td>0.715866</td>
                   <td>0.569086</td>
                   <td>0.715866</td>
                   <td>KNN</td>
                 </tr>
                 <tr>
-                  <td>f1-score</td> 
+                  <td>f1-score</td>
                   <td>0.819950</td>
                   <td>0.326571</td>
-                  <td>0.715866</td> 
+                  <td>0.715866</td>
                   <td>0.573260</td>
                   <td>0.696966</td>
                   <td>KNN</td>
                 </tr>
                 <tr>
-                  <td>precision</td> 
+                  <td>precision</td>
                   <td>0.836647</td>
                   <td>0.395598</td>
-                  <td>0.673486</td> 
+                  <td>0.673486</td>
                   <td>0.616122</td>
                   <td>0.726707</td>
                   <td>LogisticRegression</td>
                 </tr>
                 <tr>
-                  <td>recall</td> 
+                  <td>recall</td>
                   <td>0.702169</td>
                   <td>0.587102</td>
-                  <td>0.673486</td> 
+                  <td>0.673486</td>
                   <td>0.644636</td>
                   <td>0.673486</td>
                   <td>LogisticRegression</td>
                 </tr>
                 <tr>
-                  <td>f1-score</td> 
+                  <td>f1-score</td>
                   <td>0.763532</td>
                   <td>0.472690</td>
-                  <td>0.673486</td> 
+                  <td>0.673486</td>
                   <td>0.618111</td>
                   <td>0.673486</td>
                   <td>LogisticRegression</td>
                 </tr>
               </tbody>
-            </table>        
-          
-        <!-- first END -->
+            </table>
+
+            <!-- first END -->
+          </div>
+
+          <!-- myTabContent END-->
+        </div>
+        <!-- p-5 bg-white rounded shadow mb-5 END-->
       </div>
-    
-      <!-- myTabContent END-->
-    </div>
-    <!-- p-5 bg-white rounded shadow mb-5 END-->
-  </div>
-  <!-- container py-5 END -->
+      <!-- container py-5 END -->
 </body>
 
 </html>
