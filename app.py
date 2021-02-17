@@ -30,12 +30,7 @@ def pilot():
     # check if it's a POST
 
 
-    # dependencies
-    from db_connection import postgreSQLConnection
-    import numpy as np
-    import pandas as pd
-    import pickle5 as pickle
-    import matplotlib.pyplot as plt
+  
 
 
     hrds_train_features = pd.read_sql("select * from \"hrds_train_features\"", postgreSQLConnection);
