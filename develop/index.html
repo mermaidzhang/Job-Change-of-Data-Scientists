@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>er-team ML dashboard</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+  <div class="container py-5">
+    <!-- For demo purpose -->
+    <div class="row mb-5">
+      <div class="col-lg-8 text-white py-4 text-center mx-auto">
+        <h1 class="display-3">ER-team Dashboard</h1>
+        <h3 class="display-4">Who is likely to stay?</h3>
+        <p class="lead">By <a href="https://bootstrapious.com/snippets" class="text-white">
+            Faramarz, Pegah,Yixin, Adanma.</a>
+        </p>
+      </div>
+    </div>
+    <!-- End -->
+
+
+    <div class="p-5 bg-white rounded shadow mb-5">
+      <!-- Rounded tabs -->
+      <ul id="myTab" role="tablist"
+        class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
+        <li class="nav-item flex-sm-fill">
+          <a id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true"
+            class="nav-link border-0 text-uppercase font-weight-bold active">Model Analysis</a>
+        </li>
+        <li class="nav-item flex-sm-fill">
+          <a id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false"
+            class="nav-link border-0 text-uppercase font-weight-bold">Feature Analysis</a>
+        </li>
+        <li class="nav-item flex-sm-fill">
+          <a id="third-tab" data-toggle="tab" href="#third" role="tab" aria-controls="third" aria-selected="false"
+            class="nav-link border-0 text-uppercase font-weight-bold">Models Compared</a>
+        </li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div id="first" role="tabpanel" aria-labelledby="first-tab" class="tab-pane fade px-4 py-5 show active">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-4">
+                
+                <form class="bd-example">
+                  <fieldset>
+                    <legend>Select dataset and model</legend>              
+                
+                    <p>
+                      <label for="select">Select dataset</label>
+                      <select id="drop1">
+                        <option value="">Choose...</option>
+                        <optgroup label="Datasets">
+                          <option value="">Training</option>
+                          <option value="">Test</option>
+                        </optgroup>
+                      </select>
+                    </p>
+                
+                    <p>
+                      <label for="select">Select ML model</label>
+                      <select id="drop2">
+                        <option value="">Choose...</option>
+                        <optgroup label="Models">
+                          <option value="">Random Forest</option>
+                          <option value="">Logistic Regression</option>
+                          <option value="">KNN</option>
+                        </optgroup>
+                      </select>
+                    </p>
+                </form>
+                
+
+              </div>
+              <div class="col-4">
+                column 2
+              </div>
+              <div class="col-4">
+                column 3
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div id="second" role="tabpanel" aria-labelledby="second-tab" class="tab-pane fade px-4 py-5">
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div id="third" role="tabpanel" aria-labelledby="third-tab" class="tab-pane fade px-4 py-5">
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+      <!-- End rounded tabs -->
+    </div>
+
+  </div>
+</body>
+
+</html>
