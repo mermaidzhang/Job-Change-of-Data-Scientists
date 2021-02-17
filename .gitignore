@@ -1,6 +1,8 @@
 .vscode/
 Ignore/
 test*
+boilerplate*
+eventHandler.js
 db_connection.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
