@@ -10,7 +10,7 @@
   <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="/static/js/eventHandler.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/static/css/style.css">
@@ -60,32 +60,37 @@
                   <h5 class="card-header">Select dataset and model</h5>
                   <div class="card-body">
 
-                    <form method="POST">
+                    <form action="" method="post">
                       <div class="form-group">
                         <label for="drop1">Select dataset</label>
                         <p>
 
-                          <select id="drop1" onchange="this.form.submit(db=test&func=chart1")">
-                            <option value="choose">Choose...</option>
-                            <optgroup label="Datasets">
+                          <select id="drop1" name='dataset'>
+                            
+                            
                               <option value="train">Training</option>
                               <option value="test">Test</option>
-                            </optgroup>
+                            
                           </select>
                         </p>
 
 
                         <p>
                           <label for="drop2">Select ML model</label>
-                          <select id="drop2" onchange="drop2Handler(this.value)">
-                            <option value="choose">Choose...</option>
-                            <optgroup label="Models">
+                          <select id="drop2" name='models'>
+                            
+                            
                               <option value="rf">Random Forest</option>
                               <option value="lr">Logistic Regression</option>
                               <option value="knn">KNN</option>
-                            </optgroup>
+                            
                           </select>
                         </p>
+
+                        <p>
+                          <input type="submit">
+                        </p>
+                         
                       </div>
                     </form>
                   </div>
@@ -120,11 +125,16 @@
 
                         var data = [
                           {
-                            x: ['Likely to stay','Likely to leave'],
-                            y: data_received,
+                            x: data_received[0],
+                            y: data_received[1],
                             type: 'bar'
                           }
                         ];
+                        var layout = {
+                          tickmode:"array",
+                          tickvals:[0,1],
+                          ticktext:['Likely to stay','Likely to leave']                          
+                        };
 
                         Plotly.newPlot('chart2', data);
                       </script>
