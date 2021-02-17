@@ -95,9 +95,10 @@ def pilot():
     predicted = loaded_model.predict(df)
     chart2 = np.unique(predicted,return_counts = True)[1]
     chart2 = pd.DataFrame(chart2)
-    chart2['pred']=chart2.index.map(lambda x:'Likely to State' if x==0 else 'Likely to Leave')
+    chart2['pred']=chart2.index.map(lambda x:'Likely to Stay' if x==0 else 'Likely to Leave')
     chart2 = chart2.set_index('pred',drop=True)
     chart2 = chart2.rename(columns={0:'count'})
+    results = chart2.to_html(classes=["table-bordered","table-striped"])
     chart2 = [chart2.index.to_list(),chart2['count'].to_list()]
     chart2=json.dumps(chart2)
     
@@ -108,17 +109,18 @@ def pilot():
    
     if ds == 'train':
         chart4, chart3 = result_metrics(y, predicted, mdl)
+        chart3 = chart3.to_html(classes=["table-bordered","table-striped"])
+        chart4 = chart4.to_html(classes=["table-bordered","table-striped"])
     else:
             chart3=pd.DataFrame({'Message':'Accuracy is available only for training dataset'},index=[1])
             chart4=pd.DataFrame({'Message':'Confusion matrix is available only for training dataset'},index=[1])
-    
-    chart3=chart3.to_html(classes=["table-responsive","table-bordered","table-s","table-striped"])
-    chart4 = chart4.to_html(classes=["table-responsive","table-bordered","table-sm","table-striped"])
+            chart3=chart3.to_html(classes=["table-responsive","table-bordered","table-s","table-striped"])
+            chart4 = chart4.to_html(classes=["table-responsive","table-bordered","table-s","table-striped"])
     
     chart9 = all_models_accuracy.to_html(classes=["table-responsive","table-bordered","table-s","table-striped"])
     chart10 = all_models_cm.to_html(classes=["table-responsive","table-bordered","table-s","table-striped"])
 
-    return render_template('index.html',chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4,chart5=chart5,chart9=chart9,chart10=chart10,sel1=sel1,sel2=sel2)
+    return render_template('index.html',results=results,chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4,chart5=chart5,chart9=chart9,chart10=chart10,sel1=sel1,sel2=sel2)
 
 
 if __name__ == '__main__':

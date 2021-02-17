@@ -70,10 +70,7 @@
                             <option value="test">Test</option>
                           </select>
                         </p>
-                        <h5 class="card-title">Current dataset</h5>
-                        <p class="card-text">{{sel1|safe}}</p>
-
-
+                        <h5 class="card-title">Current: {{sel1|safe}}</h5>
                         <p>
                           <label for="drop2">Select ML model</label>
                           <select id="drop2" name='model'>
@@ -82,9 +79,7 @@
                             <option value="knn">KNN</option>
                           </select>
                         </p>
-                        <h5 class="card-title">Current model</h5>
-                        <p class="card-text">{{sel2|safe}}</p>
-
+                        <h5 class="card-title">Current: {{sel2|safe}}</h5>
                         <p>
                           <input type="submit">
                         </p>
@@ -115,6 +110,7 @@
                 <div class="card">
                   <h5 class="card-header">Predictions</h5>
                   <div class="card-body">
+                    <p> {{ results | safe }} </p>
                     <div id="chart2">
 
 
@@ -178,10 +174,11 @@
               <div class="col-3">
 
                 <div class="card">
-                  <h5 class="card-header">Current dataset</h5>
+                  <h5 class="card-header">Dataset</h5>
                   <div class="card-body">
-                    <h5 class="card-title">Current dataset</h5>
-                    <p class="card-text">{{sel1|safe}}</p>
+                  </p>
+                    <h5 class="card-title">Current: {{sel1|safe}}</h5>
+                  <p>
                   </div>
                 </div>
               </div>
