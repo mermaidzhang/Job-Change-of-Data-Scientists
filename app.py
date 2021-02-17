@@ -57,6 +57,10 @@ def pilot():
     chart2 = pd.DataFrame(chart2)
     chart2 = [chart2.index.to_list(),chart2[0].to_list()]
     
+    chart5 = np.unique(y,return_counts = True)[1]
+    chart5 = pd.DataFrame(chart2)[0]
+    chart5=json.loads(chart5.to_json(orient='records'))
+    
     # accuracy report
     chart4, chart3 = result_metrics(y, predicted, 'RandomForest')
     
@@ -66,8 +70,9 @@ def pilot():
     chart4 = chart4.to_html(classes=["table-responsive","table-bordered","table-sm","table-striped"])
 
     #jsonify the data frames
-    chart2=json.dumps(chart2)
 
+    chart2=json.dumps(chart2)
+    chart2=json.loads(chart2.to_json(orient='records'))
 
     # render the webpage with the data passed
     if request.method == "POST":
@@ -76,10 +81,11 @@ def pilot():
 
         
 
-        return render_template('index.html',chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4)
+        return render_template('index.html',chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4,chart5=chart5)
 
     else:
-        return render_template('index.html',chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4)
+        return render_template('index.html',chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4,chart5=chart5)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
