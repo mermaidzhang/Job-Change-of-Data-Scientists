@@ -66,26 +66,24 @@
                         <p>
 
                           <select id="drop1" name='dataset'>
-
-
                             <option value="train">Training</option>
                             <option value="test">Test</option>
-
                           </select>
                         </p>
+                        <h5 class="card-title">Current dataset</h5>
+                        <p class="card-text">{{sel1|safe}}</p>
 
 
                         <p>
                           <label for="drop2">Select ML model</label>
-                          <select id="drop2" name='models'>
-
-
+                          <select id="drop2" name='model'>
                             <option value="rf">Random Forest</option>
                             <option value="lr">Logistic Regression</option>
                             <option value="knn">KNN</option>
-
                           </select>
                         </p>
+                        <h5 class="card-title">Current model</h5>
+                        <p class="card-text">{{sel2|safe}}</p>
 
                         <p>
                           <input type="submit">
@@ -131,11 +129,6 @@
                             type: 'bar'
                           }
                         ];
-                        var layout = {
-                          tickmode: "array",
-                          tickvals: [0, 1],
-                          ticktext: ['Likely to stay', 'Likely to leave']
-                        };
 
                         Plotly.newPlot('chart2', data);
                       </script>
@@ -185,23 +178,10 @@
               <div class="col-3">
 
                 <div class="card">
-                  <h5 class="card-header">Select dataset </h5>
+                  <h5 class="card-header">Current dataset</h5>
                   <div class="card-body">
-
-                    <form action="" method="post">
-                      <div class="form-group">
-                        <label for="drop1">Select dataset</label>
-                        <p>
-
-                          <select id="drop3" name='dataset'>
-
-
-                            <option value="train">Training</option>
-                            <option value="test">Test</option>
-
-                          </select>
-                        </p>
-                      </div>
+                    <h5 class="card-title">Current dataset</h5>
+                    <p class="card-text">{{sel1|safe}}</p>
                   </div>
                 </div>
               </div>
@@ -220,8 +200,8 @@
 
                         data = [
                           {
-                            values: [14381, 4777],
-                            labels: ['Likely to stay', 'Likely to leave'],
+                            values: data_received[1],
+                            labels: data_received[0],
                             type: 'pie'
                           }
                         ];

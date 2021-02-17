@@ -3,6 +3,9 @@ import numpy as np
 import pandas as pd
 import json
 
+# sklearn dependencies
+from sklearn import preprocessing
+
 # Add sqlalchemy dependencies
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
@@ -12,7 +15,6 @@ from sqlalchemy import create_engine, func
     # dependencies
 from db_connection import postgreSQLConnection
 import pickle5 as pickle
-import matplotlib.pyplot as plt
 
 
 # Add flask dependencies
@@ -26,25 +28,61 @@ app = Flask(__name__)
 
 @app.route("/", methods=['post', 'get'])
 def pilot():
-    # check if it's a POST
-
-    hrds_train_features = pd.read_sql("select * from \"hrds_train_features\"", postgreSQLConnection);
-    hrds_test_features = pd.read_sql("select * from \"hrds_test_features\"", postgreSQLConnection);
+    from etl import hrds_train_df,hrds_test_df,result_metrics
+    y = hrds_train_df['target']
+    hrds_train_df = hrds_train_df.drop(['target'],axis=1)
+    hrds_train_df = hrds_train_df.drop(['training_buckets','city_index_buckets','experience_buckets'],axis=1)
+    hrds_test_df = hrds_test_df.drop(['training_buckets','city_index_buckets','experience_buckets'],axis=1)
 
     all_models_accuracy = pd.read_sql("select * from \"all_models_accuracy\"", postgreSQLConnection);
     all_models_cm = pd.read_sql("select * from \"all_models_cm\"", postgreSQLConnection);
+    # check if it's a POST
 
-    # import models and get predictions on the dataset
-    rf_model='rf.sav'
-    lr_model='lr.sav'
-    knn_model='knn.sav'
+    if request.method == "POST":
+        mdl = request.form.get('model')
+        ds = request.form.get('dataset')
 
-    from etl import hrds_train_df,result_metrics
+        if ds=='train':
+            features_tbl = "hrds_train_features"
+            dataset_df=hrds_train_df
 
+        elif ds=='test':
+            features_tbl="hrds_test_features"
+            dataset_df=hrds_test_df
+
+        else:
+            features_tbl="unknown"
+            dataset_df="unknown"
+        
+        if mdl=='rf':
+            model='rf.sav'
+        elif mdl=='lr':
+            model='lr.sav'
+            # We need to scale the data for logistic regression
+            scaler = preprocessing.StandardScaler().fit(dataset_df)
+            dataset_df = scaler.transform(dataset_df)
+        elif mdl == 'knn':
+            model='knn.sav'
+        else:
+            model='unknown'
+        #return(f'selected dataset:"{ds}"\tselected model:"{mdl}"')
+
+    else:
+        ds="train"
+        mdl="rf"
+        dataset_df=hrds_train_df
+        model='rf.sav'
+        features_tbl = "hrds_train_features"
+
+    # start processing **************************************************************
+    lookup = {'train':'Training','test':'Test','rf':'Random Forest','lr':'Logistic Regression','knn':'KNN'}
+    sel1=json.dumps(lookup[ds])
+    sel2=json.dumps(lookup[mdl])
     # get the features
+    features_df = pd.read_sql(f"select * from {features_tbl}", postgreSQLConnection);
     features = ['city','city_development_index','gender','relevent_experience','enrolled_university','education_level', \
         'major_discipline','experience','company_size','company_type','last_new_job','training_hours']
-    chart1 = hrds_train_features.count()
+    chart1 = features_df.count()
     chart1=chart1.to_frame()
     chart1 = chart1.rename(columns={0:'count'})
     chart1['Features']=chart1.index
@@ -52,44 +90,35 @@ def pilot():
     chart1=chart1.to_html(classes=["table-bordered","table-striped"])
 
     # Run the model
-    df = hrds_train_df.drop(['training_buckets','city_index_buckets','experience_buckets','target'],axis=1)
-    loaded_model = pickle.load(open(rf_model, 'rb'))
+    df = dataset_df
+    loaded_model = pickle.load(open(f'{model}', 'rb'))
     predicted = loaded_model.predict(df)
-
-    # save results
-    y = hrds_train_df['target']
-    y = hrds_train_df['target']
-    chart2 = np.unique(y,return_counts = True)[1]
+    chart2 = np.unique(predicted,return_counts = True)[1]
     chart2 = pd.DataFrame(chart2)
-    chart2 = [chart2.index.to_list(),chart2[0].to_list()]
+    chart2['pred']=chart2.index.map(lambda x:'Likely to State' if x==0 else 'Likely to Leave')
+    chart2 = chart2.set_index('pred',drop=True)
+    chart2 = chart2.rename(columns={0:'count'})
+    chart2 = [chart2.index.to_list(),chart2['count'].to_list()]
+    chart2=json.dumps(chart2)
     
-    chart5 = np.unique(y,return_counts = True)[1]
-    chart5 = pd.DataFrame(chart2)[0]
-    chart5=json.loads(chart5.to_json(orient='records'))
+    # predictions tab2
+    chart5 = chart2
     
-    # accuracy report
-    chart4, chart3 = result_metrics(y, predicted, 'RandomForest')
+    # accuracy report only available for training dataset
+   
+    if ds == 'train':
+        chart4, chart3 = result_metrics(y, predicted, mdl)
+    else:
+            chart3=pd.DataFrame({'Message':'Accuracy is available only for training dataset'},index=[1])
+            chart4=pd.DataFrame({'Message':'Confusion matrix is available only for training dataset'},index=[1])
     
     chart3=chart3.to_html(classes=["table-responsive","table-bordered","table-s","table-striped"])
-
-
     chart4 = chart4.to_html(classes=["table-responsive","table-bordered","table-sm","table-striped"])
+    
+    chart9 = all_models_accuracy.to_html(classes=["table-responsive","table-bordered","table-s","table-striped"])
+    chart10 = all_models_cm.to_html(classes=["table-responsive","table-bordered","table-s","table-striped"])
 
-    #jsonify the data frames
-
-    chart2=json.dumps(chart2)
-
-    # render the webpage with the data passed
-    if request.method == "POST":
-        form_data = request.form.get('models')
-        data_set = request.form.get('dataset')
-
-        
-
-        return render_template('index.html',chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4,chart5=chart5)
-
-    else:
-        return render_template('index.html',chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4,chart5=chart5)
+    return render_template('index.html',chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4,chart5=chart5,chart9=chart9,chart10=chart10,sel1=sel1,sel2=sel2)
 
 
 if __name__ == '__main__':
