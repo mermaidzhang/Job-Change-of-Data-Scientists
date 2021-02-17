@@ -201,6 +201,9 @@
 
                           </select>
                         </p>
+                        <p>
+                          <input type="submit">
+                        </p>
                       </div>
                   </div>
                 </div>
@@ -218,9 +221,9 @@
 
                         data_received = {{ chart5 | safe }}
 
-                        data = [
+                        var data = [
                           {
-                            values: [14381, 4777],
+                            values: [data_received[0], data_received[1]],
                             labels: ['Likely to stay', 'Likely to leave'],
                             type: 'pie'
                           }
