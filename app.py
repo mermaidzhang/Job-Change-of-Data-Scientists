@@ -109,10 +109,8 @@ def pilot():
     chart5 = chart2
 
     rf_imp_df = pd.read_csv ('Resources/Random_tree_features.csv')
-    
-    #chart6 = np.unique(predicted,return_counts = True)[1]
-    chart6 = rf_imp_df
-    chart6 = [chart6.index.to_list(), chart6['Feature Importances'].to_list()]
+    #print(rf_imp_df['Values'])
+    chart6 = [rf_imp_df['Values'].to_list(), rf_imp_df['Feature-Importances'].to_list()]
     chart6 = json.dumps(chart6)
 
     # accuracy report only available for training dataset
