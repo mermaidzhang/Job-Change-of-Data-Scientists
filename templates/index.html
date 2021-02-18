@@ -241,11 +241,11 @@
                       <script>
                         data_received = {{ chart6 | safe }}
 
-                         data = [
+                         var data = [
                           {
                             y: data_received[0],
                             x: data_received[1],
-                            type: 'barh'
+                            type: 'bar'
                           }
                         ];
 
