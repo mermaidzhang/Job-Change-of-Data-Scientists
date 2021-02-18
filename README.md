@@ -217,8 +217,11 @@ Under Model analysis, there are two drop-menus:Select Dataset and Select Models,
 ![](Resources/Dashboard1.png)
 
 2. Feature Analysis
-In the feature analysis tab, there are the basic analysis of top features we have concluded using Random Forest Sampling as well as the frequency of the target. 
+In the feature analysis tab, there are the basic analysis of top features we have concluded using Random Forest Sampling as well as the frequency of the target.
+ 
 ![](Resources/Dashboard3.png)
+
+![](Resources/Dashboard4.png)
 3. Models Compared
 In this tab, we will be able to switch between test and train to see the scroes across different models. 
 ![](Resources/Dashboard2.PNG)
