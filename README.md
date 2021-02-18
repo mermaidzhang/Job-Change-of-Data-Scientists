@@ -218,7 +218,6 @@ Under Model analysis, there are two drop-menus:Select Dataset and Select Models,
 
 2. Feature Analysis
 In the feature analysis tab, there are the basic analysis of top features we have concluded using Random Forest Sampling as well as the frequency of the target.
- 
 ![](Resources/Dashboard3.png)
 
 ![](Resources/Dashboard4.png)
