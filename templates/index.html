@@ -198,7 +198,7 @@
 
                         data_received = {{ chart5 | safe }}
 
-                        data = [
+                        var data = [
                           {
                             values: data_received[1],
                             labels: data_received[0],
@@ -229,31 +229,36 @@
           <!-- First row -->
           <div container>
             <div class="row">
-              <div class="col-6">
+              <div class="col-10">
                 <div class="card">
-                  <h5 class="card-header">Important Features</h5>
+                  <h5 class="card-header">Important Features using Random Forest Model</h5>
                   <div class="card-body">
+                    
+                    <div id="chart6">
 
-                    <div>
-                      <p> display chart6</p>
+
+                      <!-- Java script to create a chart from data -->
+                      <script>
+                        data_received = {{ chart6 | safe }}
+
+                         data = [
+                          {
+                            y: data_received[0],
+                            x: data_received[1],
+                            type: 'barh'
+                          }
+                        ];
+
+                        Plotly.newPlot('chart6', data);
+                      </script>
+
+
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="col-6">
-                <div class="card">
-                  <h5 class="card-header">Important Features</h5>
-                  <div class="card-body">
 
-
-                    <div id="displayTable">
-                      <p> display chart7 </p>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

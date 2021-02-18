@@ -107,23 +107,32 @@ def pilot():
     
     # predictions tab2
     chart5 = chart2
+
+    rf_imp_df = pd.read_csv ('Resources/Random_tree_features.csv')
     
+    #chart6 = np.unique(predicted,return_counts = True)[1]
+    chart6 = rf_imp_df
+    chart6 = [chart6.index.to_list(), chart6['Feature Importances'].to_list()]
+    chart6 = json.dumps(chart6)
+
     # accuracy report only available for training dataset
    
     if ds == 'train':
         chart4, chart3 = result_metrics(y, predicted, mdl)
         chart3 = chart3.to_html(classes=["table-bordered","table-striped"])
         chart4 = chart4.to_html(classes=["table-bordered","table-striped"])
+        
     else:
             chart3=pd.DataFrame({'Message':'Accuracy is available only for training dataset'},index=[1])
             chart4=pd.DataFrame({'Message':'Confusion matrix is available only for training dataset'},index=[1])
             chart3=chart3.to_html(classes=["table-responsive","table-bordered","table-s","table-striped"])
             chart4 = chart4.to_html(classes=["table-responsive","table-bordered","table-s","table-striped"])
+            #chart6 = pd.DataFrame({'Message':'Feature Impotance bar chart is available only for training dataset'},index=[1])
     
     chart9 = all_models_accuracy.to_html(classes=["table-responsive","table-bordered","table-striped"])
     chart10 = all_models_cm.to_html(classes=["table-responsive","table-bordered","table-striped"])
 
-    return render_template('index.html',results=results,chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4,chart5=chart5,chart9=chart9,chart10=chart10,sel1=sel1,sel2=sel2)
+    return render_template('index.html',results=results,chart1=chart1,chart2=chart2,chart3=chart3,chart4=chart4,chart5=chart5,chart6=chart6,chart9=chart9,chart10=chart10,sel1=sel1,sel2=sel2)
 
 
 if __name__ == '__main__':
